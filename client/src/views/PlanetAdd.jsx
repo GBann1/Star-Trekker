@@ -12,6 +12,7 @@ const PlanetAdd = () => {
         terrain: "",
         surfaceWater: 0,
         population: 0
+        //coordinates: [x,y,z,r]
     })
     
     const submitHandler = (e) => {
