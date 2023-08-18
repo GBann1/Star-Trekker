@@ -31,7 +31,8 @@ res.cookie("mycookie", "mydata", { httpOnly: true }).json({
 });
 
 // 6. IMPORT ROUTES
-
+require("./routes/planet.routes");
+require("./routes/user.routes");
 
 
 // 3. listen to port
