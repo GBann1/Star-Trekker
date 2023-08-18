@@ -30,8 +30,6 @@ const PlanetSchema = new mongoose.Schema({
         type: Number
     }
 
-
-
 }, {timestamps: true});
 
 // This is what is creating the table
