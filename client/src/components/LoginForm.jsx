@@ -38,7 +38,7 @@ const LoginForm = () => {
                 </div>
                 <div className="row mb-3">
                     <label for="cpass" className="col-6">Confirm Password</label>
-                    <input className="col-6" type="password" name="cpass" value={first_name}></input>
+                    <input className="col-6" type="password" name="cpass" value={password}></input>
                 </div>
                 <button className="btn btn-primary">Register</button>
             </form>
