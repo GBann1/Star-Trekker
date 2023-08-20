@@ -14,7 +14,7 @@ const LoginForm = () => {
             .then(response => {
                 //map through responses and see if we get a valid one
                 const newlyCreatedUser = response.data
-                navigate(`/`)
+                navigate(`/dashboard/${newlyCreatedUser._id}`)
             })
     }
 
