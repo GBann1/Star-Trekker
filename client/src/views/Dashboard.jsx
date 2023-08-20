@@ -27,9 +27,12 @@ const Dashboard = () => {
                         // This needs to be a table to keep with our wireframe
                         return(
                             <tr key={idx}>
+                                {/* trip.length */}
                                 <td>hello</td>
-                                <td>hello</td>
-                                <td>hello</td>
+                                {/* trip.planet */}
+                                <td>there</td>
+                                {/* trip.time */}
+                                <td>peeps</td>
                             </tr>
                         )
                     })}
