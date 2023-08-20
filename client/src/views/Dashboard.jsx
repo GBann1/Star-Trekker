@@ -15,13 +15,27 @@ const Dashboard = () => {
     return (
         <div>
             <h1>Your Travels</h1>
-            {userTravels.map((trip,idx)=>{
-                return(
-                    <div key={idx}>
-                        <h1>hello</h1>
-                    </div>
-                )
-            })}
+            <table>
+                <thead>
+                    <th>This</th>
+                    <th>is</th>
+                    <th>a</th>
+                    <th>table</th>
+                </thead>
+                <tbody>
+                    {userTravels.map((trip,idx)=>{
+                        // This needs to be a table to keep with our wireframe
+                        return(
+                            <tr key={idx}>
+                                <td>hello</td>
+                                <td>hello</td>
+                                <td>hello</td>
+                            </tr>
+                        )
+                    })}
+                    
+                </tbody>
+            </table>
         </div>
     )
 }
