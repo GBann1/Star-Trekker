@@ -5,13 +5,14 @@ import { useNavigate } from 'react-router-dom'
 const LoginForm = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-
+    const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post(`http://localhost:8000/api/login`, { email, password })
+        axios.post(`http://localhost:8000/api/login`, { firstName, lastName, email, password })
             .then(response => {
+                //map through responses and see if we get a valid one
                 const newlyCreatedUser = response.data
-                navigate(`/`)
+                navigate(`/dashboard/${newlyCreatedUser._id}`)
             })
     }
 
@@ -26,7 +27,11 @@ const LoginForm = () => {
                     <label for="password" className="col-6">password</label>
                     <input className="col-6" type="password" name="password" value={password}></input>
                 </div>
-                <button className="btn btn-primary">Login</button>
+                <div className="row mb-3">
+                    <label for="cpass" className="col-6">Confirm Password</label>
+                    <input className="col-6" type="password" name="cpass" value={password}></input>
+                </div>
+                <button className="btn btn-primary">Register</button>
             </form>
         </div>
     )

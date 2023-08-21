@@ -3,7 +3,7 @@ import LoginForm from '../components/LoginForm';
 import RegisterForm from '../components/RegisterForm';
 const LoginPage = () => {
     return (
-        <div>
+        <div style={{display:'flex'}}>
             <LoginForm/>
             <RegisterForm/>
         </div>
