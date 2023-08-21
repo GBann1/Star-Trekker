@@ -19,6 +19,9 @@ const PlanetSchema = new mongoose.Schema({
     }, 
     distance_light_year:{
         type: Number
+    },
+    semi_major_axis: {
+        type: Number
     }
 }, {timestamps: true});
 
