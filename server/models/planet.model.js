@@ -22,6 +22,9 @@ const PlanetSchema = new mongoose.Schema({
     },
     semi_major_axis: {
         type: Number
+    },
+    imageURL: {
+        type: String
     }
 }, {timestamps: true});
 
