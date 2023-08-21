@@ -3,33 +3,23 @@ const mongoose = require("mongoose");
 
 const PlanetSchema = new mongoose.Schema({
     name: {
-        type: String,
+        type: String
     },
-    rotation_period: {
+    mass: {
         type: Number
     },
-    orbital_period: {
+    radius: {
         type: Number
     },
-    diameter: {
+    period: {
         type: Number
     },
-    climate: {
-        type: String
-    },
-    gravity: {
-        type: String
-    },
-    terrian: {
-        type: String
-    },
-    surface_water: {
-        type: String
-    },
-    population: {
+    temperature: {
+        type: Number
+    }, 
+    distance_light_year:{
         type: Number
     }
-
 }, {timestamps: true});
 
 // This is what is creating the table
