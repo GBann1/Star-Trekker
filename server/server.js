@@ -25,7 +25,7 @@ app.use(express.json());
 // parses url-encoded data from requests
 app.use(express.urlencoded({ extended: true }))
 
-// //Cookies
+//Cookies
 // res.cookie("mycookie", "mydata", { httpOnly: true }).json({
 //     message: "This response has a cookie"
 // });
