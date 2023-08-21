@@ -9,7 +9,8 @@ function App() {
       <Routes>
         <Route path='/' element={<LandingPage/>}/>
         <Route path='/login_or_register' element={<LoginPage/>}/>
-        <Route path='/dashboard/:id' element={<Dashboard/>}/>
+        {/* <Route path='/dashboard/:id' element={<UserDashboard/>}/> */}
+        <Route path='/dashboard/' element={<UserDashboard/>}/>
       </Routes>
     </div>
   );
