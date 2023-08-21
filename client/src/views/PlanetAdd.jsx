@@ -33,6 +33,7 @@ const PlanetAdd = () => {
                 setPlanet.terrain("");
                 setPlanet.surfaceWater();
                 setPlanet.population();
+                // add distance from earth, dist coords, something 
 
                 nav("/");
             })
@@ -60,7 +61,7 @@ const PlanetAdd = () => {
                 <input type="number" value={planet.surfaceWater} onChange={setPlanet.surfaceWater(e.target.value)}/>
                 <label>Population</label>
                 <input type="number" value={planet.population} onChange={setPlanet.population(e.target.value)}/>
-                <input type="submit" value="Log Plnaet"/>
+                <input type="submit" value="Log Planet"/>
             </form>
         </div>
     )
