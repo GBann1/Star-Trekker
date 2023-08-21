@@ -1,5 +1,5 @@
+import axios from "axios";
 import React, { useState } from 'react'
-import axios from "axios"
 import { useNavigate } from 'react-router-dom'
 
 const RegisterForm = () => {
@@ -9,12 +9,13 @@ const RegisterForm = () => {
     const [password, setPassword] = useState("")
     const navigate = useNavigate();
     const handleSubmit = (e) => {
-        e.preventDefault()
-        axios.post(`http://localhost:8000/api/login`, { firstName, lastName, email, password })
+        e.preventDefault();
+        axios.post(`http://localhost:8000/api/users/register`, { firstName, lastName, email, password }, {withCredentials: true})
             .then(response => {
                 const newlyCreatedUser = response.data
                 navigate(`/`)
             })
+            .catch(err => console.log(err));
     }
     return (
         <div className='container mt-5 me-5'>

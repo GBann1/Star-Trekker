@@ -5,7 +5,7 @@ module.exports.APITest = (req, res) => {
     res.json({message:"ok"})
 }
 
-module.exports.allPlanet = (req, res) => {
+module.exports.allPlanets = (req, res) => {
     Planet.find()
         .then(planetList => res.json(planetList))
         .catch(err=>res.json(err))

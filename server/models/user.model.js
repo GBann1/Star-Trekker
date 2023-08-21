@@ -4,24 +4,29 @@ const bcrypt = require('bcrypt');
 //npm i bcrypt jsonwebtoken cookie-parser
 
 const UserSchema = new mongoose.Schema({
-    userName: {
+    firstName: {
         type: String,
-        required: [true, "Username is required"],
-        minlength: [5, "Username must be at least 5 characters long"]
+        required: [true, "First name is required"],
+        minlength: [3, "First name must be at least 3 characters long"]
+    },
+    lastName: {
+        type: String,
+        required: [true, "Last name is required"],
+        minlength: [3, "Last name must be at least 3 characters long"]
     },
     email: {
         type: String,
         required: [true, "Email is required"],
+        validate: {
+            validator: function(val) {return /^([\w-\.]+@([\w-]+\.)+[\w-]+)?$/.test(val)},
+            message: "Please enter a valid email"
+        }
     },
     password: {
         type: String,
         required: [true, "Password is required"],
         minlength: [8, "Password must be 8 characters or longer"]
     },
-    validate: {
-        validator: val => /^([\w-\.]+@([\w-]+\.)+[\w-]+)?$/.test(val),
-        message: "Please enter a valid email"
-    }
 }, { timestamps: true });
 
 UserSchema.virtual('confirmPassword')

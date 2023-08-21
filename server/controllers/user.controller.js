@@ -1,4 +1,6 @@
 const User = require("../models/user.model");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 module.exports.registerUser = (req, res) => {
     User.create(req.body)
@@ -7,11 +9,23 @@ module.exports.registerUser = (req, res) => {
                 id: user._id
             }, process.env.SECRET_KEY);
 
-            res.cookie("usertoken", userToken, secret, {httpOnly: true})
+            res.cookie("usertoken", userToken, {httpOnly: true})
                 .json({ msg: "success!", user: user });
         })
-        .catch(err => res.json(err));
+        .catch(err => res.status(400).json(err));
 }
+
+module.exports.cookie = (req, res) => {
+    res
+        .cookie("testKey", "testValue", {httpOnly: true})
+        .json("success");
+}
+
+module.exports.getAllUsers = (req, res) => {
+    User.find()
+        .then((allUsers) => {res.json({allUsers: allUsers})})
+        .catch((err) => res.status(400).json(err));
+}; 
 
 module.exports.loginUser = async (req, res) => {
     const user = await User.findOne({ email: req.body.email });
