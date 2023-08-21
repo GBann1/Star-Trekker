@@ -5,9 +5,7 @@ const jwt = require("jsonwebtoken");
 module.exports.registerUser = (req, res) => {
     User.create(req.body)
         .then(user => {
-            const userToken = jwt.sign({
-                id: user._id
-            }, process.env.SECRET_KEY);
+            const userToken = jwt.sign({id: user._id}, process.env.SECRET_KEY);
 
             res.cookie("usertoken", userToken, {httpOnly: true})
                 .json({ msg: "success!", user: user });

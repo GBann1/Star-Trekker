@@ -31,7 +31,7 @@ app.use(express.urlencoded({ extended: true }))
 // });
 
 // 6. IMPORT ROUTES
-require("./routes/planet.routes");
+require("./routes/planet.routes")(app);
 require("./routes/user.routes")(app);
 
 
