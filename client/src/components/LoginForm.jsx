@@ -29,10 +29,6 @@ const LoginForm = () => {
                     <label for="password" className="col-6">Password</label>
                     <input className="col-6" type="password" name="password" value={password}></input>
                 </div>
-                <div className="row mb-3 me-1">
-                    <label for="cpass" className="col-6">Confirm Password</label>
-                    <input className="col-6" type="password" name="cpass" value={password}></input>
-                </div>
                 <button className="btn btn-primary">Login</button>
             </form>
         </div>
