@@ -26,9 +26,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 
 //Cookies
-res.cookie("mycookie", "mydata", { httpOnly: true }).json({
-    message: "This response has a cookie"
-});
+res
+    .cookie("mycookie", "mydata", { httpOnly: true })
+    .json({message: "This response has a cookie"});
 
 // 6. IMPORT ROUTES
 require("./routes/planet.routes");
