@@ -23,19 +23,19 @@ const Dashboard = () => {
                     <th>table</th>
                 </thead>
                 <tbody>
-                    {userTravels.map((trip,idx)=>{
+                    {/* userTravels.map((trip,idx)=>{
                         // This needs to be a table to keep with our wireframe
                         return(
                             <tr key={idx}>
-                                {/* trip.length */}
+                                trip.length
                                 <td>hello</td>
-                                {/* trip.planet */}
+                                trip.planet
                                 <td>there</td>
-                                {/* trip.time */}
+                                trip.time
                                 <td>peeps</td>
                             </tr>
                         )
-                    })}
+                    }) */}
                     
                 </tbody>
             </table>
