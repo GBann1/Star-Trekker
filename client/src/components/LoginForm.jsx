@@ -6,7 +6,7 @@ import { useAppContext } from "../libs/context";
 const LoginForm = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [formData, setFormData] = useState(initialValues);
+    const [formData, setFormData] = useState('');
     const [formErrors, setFormErrors] = useState({});
     const { setLoggedUser } = useAppContext();
 

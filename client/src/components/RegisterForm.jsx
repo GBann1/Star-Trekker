@@ -22,7 +22,7 @@ const RegisterForm = (props) => {
                 setLoggedUser(res.data)
                 navigate(`/dashboard`)
             })
-            .catch(err => setFormErrors(errors.response.data.errors));
+            .catch(errors => setFormErrors(errors.response.data.errors));
     }
     return (
         <div className='container mt-5 me-5'>
