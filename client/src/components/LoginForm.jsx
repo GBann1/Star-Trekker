@@ -8,10 +8,11 @@ const LoginForm = () => {
     const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post(`http://localhost:8000/api/login`, { firstName, lastName, email, password })
+        axios.get(`http://localhost:8000/api/login`)
             .then(response => {
                 //map through responses and see if we get a valid one
                 const newlyCreatedUser = response.data
+                navigate(`/`)
                 navigate(`/dashboard/${newlyCreatedUser._id}`)
             })
     }
