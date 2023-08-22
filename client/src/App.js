@@ -21,7 +21,7 @@ function App() {
         <Route path='/dashboard' element={<UserDashboard />} />
         <Route path='/dashboard/:id' element={<UserDashboard />} />
         <Route path='/see_history' element={<Dashboard />} />
-        <Route path='/delete/GalaxyChart' element={<GalaxyChart />} />
+        {/* <Route path='/delete/GalaxyChart' element={<GalaxyChart />} /> */}
 
       </Routes>
     </AppContext.Provider>
