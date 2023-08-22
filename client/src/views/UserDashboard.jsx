@@ -9,6 +9,7 @@ const UserDashboard = () => {
     const [planetList, setPlanetList] = useState([]);
     const [user, setUser] = useState()
     const [index, setIndex] = useState(0);
+    const navigate = useNavigate();
 
     const { id } = useParams()
 
@@ -26,6 +27,13 @@ const UserDashboard = () => {
             .catch(err => console.log(err));
     }, [])
 
+    const logoutHandler = () => {
+        axios.post(`http://localhost:8000/api/users/logout`, {}, { withCredentials: true })
+            .then(res => {
+                navigate("/");
+            })
+            .catch(err => console.log(err));
+    }
 
     return (
         <div>
