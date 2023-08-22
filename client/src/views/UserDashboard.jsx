@@ -39,17 +39,17 @@ const UserDashboard = () => {
                     </div>
                     <div className='align-item center-center '>
                         <ul className='navbar-nav me-auto '>
-                            <li class="nav-item dropdown">
+                            <li className="nav-item dropdown">
                                 {
-                                    user ?
-                                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Welcome {user.firstName} </a> : <h1>Loading</h1>
+                                    user &&
+                                    <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Welcome {user.firstName} {user.lastName} </a>
                                 }
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Start Your Journey</a>
-                                    <a class="dropdown-item" href="#">View Profile</a>
-                                    <a class="dropdown-item" href="#">Add an Entity</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">LOGOUT</a>
+                                <div className="dropdown-menu">
+                                    <a className="dropdown-item" href="#">Start Your Journey</a>
+                                    <a className="dropdown-item" href="#">View Profile</a>
+                                    <a className="dropdown-item" href="#">Add an Entity</a>
+                                    <div className="dropdown-divider"></div>
+                                    <a className="dropdown-item" href="#">LOGOUT</a>
                                 </div>
                             </li>
                         </ul>
