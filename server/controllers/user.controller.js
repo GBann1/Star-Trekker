@@ -4,11 +4,21 @@ const jwt = require("jsonwebtoken");
 
 module.exports.registerUser = async (req, res) => {
     try {
-        req.session.user = await User.create(req.body);
+        req.session.user = await User.create(req.body.user);
         await req.session.save();
         return res.json(req.session.user);
     } catch(error) {
         return res.status(400).json(error);
+    }
+}
+
+module.exports.loginUser = async (req, res) => {
+    try {
+        req.session.user = await User.checkLogin(req.body);
+        await req.session.save();
+        return res.json(req.session.user);
+    } catch(error) {
+        return res.status(401).json(error);
     }
 }
 
@@ -18,16 +28,7 @@ module.exports.getAllUsers = (req, res) => {
         .catch((err) => res.status(400).json(err));
 }; 
 
-module.exports.loginUser = async (req, res) => {
-
-    try {
-        req.session.user = await User.checkLogin(req.body);
-        await req.session.save();
-        return res.json(req.session.user);
-    } catch(error) {
-        return res.status(401).json(error);
-    }
-}
+module.exports.getUser = (req, res) => {res.json(req.session.user)}
 
 module.exports.logout = (req, res) => {
     req.session.destroy();
