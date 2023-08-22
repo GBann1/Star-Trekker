@@ -48,6 +48,14 @@ UserSchema.pre('validate', function (next) {
     next();
 });
 
+UserSchema.statics.checkLogin = async function({ email, password }){
+    const user = await this.findOne({ email });
+    if(!(user && await bcrypt.compare(password, user.password))){
+        throw new this().invalidate("password", "Invalid password")
+    }
+    return user;
+}
+
 // This is what is creating the table
 const User = mongoose.model('User', UserSchema);
 
