@@ -29,7 +29,7 @@ const UserDashboard = () => {
 
     return (
         <div>
-            <nav className="navbar bg-body-tertiary">
+            <nav className="navbar navbar-expand-lg bg-light" data-bs-theme="light">
                 <div className="container-fluid d-flex">
                     <div className='align-item center'>
                         <img style={{ height: 50, width: 50 }} className='img-fluid' src={`${image}`} alt="logo" />
@@ -42,14 +42,14 @@ const UserDashboard = () => {
                             <li className="nav-item dropdown">
                                 {
                                     user &&
-                                    <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Welcome {user.firstName} {user.lastName} </a>
+                                    <Link className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Welcome {user.firstName} {user.lastName} </Link>
                                 }
                                 <div className="dropdown-menu">
-                                    <a className="dropdown-item" href="#">Start Your Journey</a>
-                                    <a className="dropdown-item" href="#">View Profile</a>
-                                    <a className="dropdown-item" href="#">Add an Entity</a>
+                                    <Link className="dropdown-item" href="#">Start Your Journey</Link>
+                                    <Link className="dropdown-item" href="#">View Profile</Link>
+                                    <Link className="dropdown-item" href="#">Add an Entity</Link>
                                     <div className="dropdown-divider"></div>
-                                    <a className="dropdown-item" href="#">LOGOUT</a>
+                                    <Link className="dropdown-item" href="#">LOGOUT</Link>
                                 </div>
                             </li>
                         </ul>
