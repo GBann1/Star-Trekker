@@ -12,14 +12,7 @@ module.exports.registerUser = async (req, res) => {
     }
 }
 
-module.exports.getAllUsers = (req, res) => {
-    User.find()
-        .then((allUsers) => {res.json({allUsers: allUsers})})
-        .catch((err) => res.status(400).json(err));
-}; 
-
 module.exports.loginUser = async (req, res) => {
-
     try {
         req.session.user = await User.checkLogin(req.body);
         await req.session.save();
@@ -28,6 +21,14 @@ module.exports.loginUser = async (req, res) => {
         return res.status(401).json(error);
     }
 }
+
+module.exports.getAllUsers = (req, res) => {
+    User.find()
+        .then((allUsers) => {res.json({allUsers: allUsers})})
+        .catch((err) => res.status(400).json(err));
+}; 
+
+module.exports.getUser = (req, res) => {res.json(req.session.user)}
 
 module.exports.logout = (req, res) => {
     req.session.destroy();
