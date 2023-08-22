@@ -7,8 +7,9 @@ import image from "../images/logo.png"
 
 const UserDashboard = () => {
     const [planetList, setPlanetList] = useState([]);
-    const [firstName, setFirstName] = useState()
+    const [user, setUser] = useState()
     const [index, setIndex] = useState(0);
+    const navigate = useNavigate();
 
     const { id } = useParams()
 
@@ -22,10 +23,17 @@ const UserDashboard = () => {
             .catch(err => console.log(err))
 
         axios.get(`http://localhost:8000/api/users/${id}`, {withCredentials: true})
-            .then(res => setFirstName(res.data.firstName))
+            .then(res => setUser(res.data))
             .catch(err => console.log(err));
     }, [])
 
+    const logoutHandler = () => {
+        axios.post(`http://localhost:8000/api/users/logout`, {}, {withCredentials: true})
+            .then(res => {
+                navigate("/");
+            })
+            .catch(err => console.log(err));
+    }
 
     return (
         <div>
@@ -40,13 +48,16 @@ const UserDashboard = () => {
                     <div className='align-item center-center '>
                         <ul className='navbar-nav me-auto '>
                             <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Welcome {firstName} </a>
+                                {
+                                    user &&
+                                        <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Welcome {user.firstName} </a>
+                                }
                                 <div className="dropdown-menu">
                                     <a className="dropdown-item" href="#">Start Your Journey</a>
                                     <a className="dropdown-item" href="#">View Profile</a>
                                     <a className="dropdown-item" href="#">Add an Entity</a>
                                     <div className="dropdown-divider"></div>
-                                    <a className="dropdown-item" href="#">LOGOUT</a>
+                                    <button className="dropdown-item" onClick={logoutHandler}>LOGOUT</button>
                                 </div>
                             </li>
                         </ul>
