@@ -22,16 +22,12 @@ const LoginForm = () => {
             <h2 className='mb-5'>LOGIN</h2>
             <form onSubmit={handleSubmit}>
                 <div className="row mb-3 me-1">
-                    <label for="email" className="col-6">Email</label>
-                    <input className="col-6" type="email" name="email" value={email}></input>
+                    <label htmlFor="email" className="col-6">Email</label>
+                    <input className="col-6" type="email" name="email" value={email} onChange={e => setEmail(e.target.value)}></input>
                 </div>
                 <div className="row mb-3 me-1">
-                    <label for="password" className="col-6">Password</label>
-                    <input className="col-6" type="password" name="password" value={password}></input>
-                </div>
-                <div className="row mb-3 me-1">
-                    <label for="cpass" className="col-6">Confirm Password</label>
-                    <input className="col-6" type="password" name="cpass" value={password}></input>
+                    <label htmlFor="password" className="col-6">Password</label>
+                    <input className="col-6" type="password" name="password" value={password} onChange={e => setPassword(e.target.value)}></input>
                 </div>
                 <button className="btn btn-primary">Login</button>
             </form>

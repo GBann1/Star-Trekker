@@ -3,20 +3,16 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 module.exports.registerUser = (req, res) => {
+    console.log("Hello")
     User.create(req.body)
         .then(user => {
-            const userToken = jwt.sign({id: user._id}, process.env.SECRET_KEY);
-
-            res.cookie("usertoken", userToken, {httpOnly: true})
-                .json({ msg: "success!", user: user });
+            req.session.save();
+            res.json(req.session.user);
         })
-        .catch(err => res.status(400).json(err));
-}
-
-module.exports.cookie = (req, res) => {
-    res
-        .cookie("testKey", "testValue", {httpOnly: true})
-        .json("success");
+        .catch(err => {
+            console.log("In err");
+            res.status(400).json(err)
+        });
 }
 
 module.exports.getAllUsers = (req, res) => {
