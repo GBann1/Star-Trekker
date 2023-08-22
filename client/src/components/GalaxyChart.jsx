@@ -115,9 +115,9 @@
 //         mouseY = d3.event.y - my + mouseY;
 //     }
 
-//     // d3.selectAll('button').on('click', init);
+//     d3.selectAll('button').on('click', init);
 
-//     // init();
+//     init();
 
 
 //     return (
