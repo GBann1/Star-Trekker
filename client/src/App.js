@@ -19,7 +19,7 @@ function App() {
         <Route path='/404' element={<Page404 />} />
         <Route path='/login_or_register' element={<LoginPage />} />
         {/* <Route path='/dashboard/:id' element={<UserDashboard/>}/> */}
-        <Route path='/dashboard/' element={<UserDashboard/>}/>
+        <Route path='/dashboard/:id' element={<UserDashboard/>}/>
         <Route path='/see_history' element={<Dashboard/>}/>
         <Route path='/delete/GalaxyChart' element={<GalaxyChart/>}/>
 
