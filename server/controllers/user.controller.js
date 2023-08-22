@@ -12,7 +12,7 @@ module.exports.registerUser = async (req, res) => {
 
 module.exports.loginUser = async (req, res) => {
     try {
-        req.session.user = await User.checkLogin(req.body);
+        req.session.user = await User.checkLogin(req.body.user);
         await req.session.save();
         return res.json(req.session.user);
     } catch(error) {

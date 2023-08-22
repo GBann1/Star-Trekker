@@ -1,6 +1,6 @@
 import axios from "axios";
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAppContext } from "../libs/context";
 
 const RegisterForm = (props) => {
@@ -34,7 +34,7 @@ const RegisterForm = (props) => {
             ...user,
             [name]: value
         });
-    };
+    }
 
     return (
         <div className='container mt-5 me-5'>
@@ -64,7 +64,7 @@ const RegisterForm = (props) => {
             </form>
             {formErrors[name] && <p className="alert alert-danger">{formErrors[name].message}</p>}
         </div>
-    )
+    );
 }
 
-export default RegisterForm
+export default RegisterForm;
