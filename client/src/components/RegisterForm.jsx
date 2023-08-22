@@ -1,23 +1,28 @@
 import axios from "axios";
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useAppContext } from "../libs/context";
 
 const RegisterForm = () => {
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const { name } = props;
+    const [firstName, setFirstName] = useState("")
+    const [lastName, setLastName] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("");
-
+    const { setLoggedUser } = useAppContext();
+    const [formErrors, setFormErrors] = useState([]);
     const navigate = useNavigate();
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        setFormErrors({});
         axios.post(`http://localhost:8000/api/users`, { firstName, lastName, email, password, confirmPassword }, {withCredentials: true})
             .then(response => {
-                const newlyCreatedUser = response.data
-                navigate(`/`)
+                setLoggedUesr(res.data);
+                navigate(`/dashboard`);
             })
-            .catch(err => console.log(err));
+            .catch(errors => setFormErrors(errors.response.data.errors));
     }
     return (
         <div className='container mt-5 me-5'>
@@ -45,6 +50,7 @@ const RegisterForm = () => {
                 </div>
                 <button className="btn btn-primary">Register</button>
             </form>
+            {formErrors[name] && <p className="alert alert-danger">{formErrors[name].message}</p>}
         </div>
     )
 }

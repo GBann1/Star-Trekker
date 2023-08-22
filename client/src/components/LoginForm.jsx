@@ -1,11 +1,17 @@
 import React, { useState } from 'react'
 import axios from "axios"
 import { useNavigate } from 'react-router-dom'
+import { useAppContext } from "../libs/context";
 
 const LoginForm = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [formData, setFormData] = useState('');
+    const [formErrors, setFormErrors] = useState({});
+    const { setLoggedUser } = useAppContext();
+
     const navigate = useNavigate();
+
     const handleSubmit = (e) => {
         e.preventDefault()
         axios.get(`http://localhost:8000/api/login`)
@@ -15,6 +21,7 @@ const LoginForm = () => {
                 navigate(`/`)
                 navigate(`/dashboard/${newlyCreatedUser._id}`)
             })
+            .catch(errors => setFormErrors(errors.response.data.errros))
     }
 
     return (
