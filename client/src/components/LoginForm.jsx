@@ -17,7 +17,7 @@ const LoginForm = () => {
         axios.post(`http://localhost:8000/api/users/login`, {email, password}, {withCredentials: true})
             .then(response => {
                 //map through responses and see if we get a valid one
-                const newlyCreatedUser = response.data
+                const newlyCreatedUser = response.data;
                 navigate(`/`)
                 navigate(`/dashboard/${newlyCreatedUser._id}`)
             })

@@ -4,6 +4,6 @@ const {authenticate} = require("../configs/middleware.config")
 module.exports = app => {
     app.post("/api/users", Users.registerUser);
     app.post("/api/users/login", Users.loginUser);
-    app.get("/api/users", authenticate, Users.getAllUsers);
+    app.get("/api/users", Users.getAllUsers);
     app.get("/api/users/:id", authenticate, Users.getUser);
 }

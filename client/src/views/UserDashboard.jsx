@@ -17,20 +17,20 @@ const UserDashboard = () => {
     };
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/planets`)
+        axios.get(`http://localhost:8000/api/planets`, {withCredentials: true})
             .then(res => setPlanetList(res.data))
             .catch(err => console.log(err))
 
-        // axios.get(`http://localhost:8000/api/users/${id}`)
-        //     .then(res => setFirstName(res.data))
-        //     .catch()
+        axios.get(`http://localhost:8000/api/users/${id}`, {withCredentials: true})
+            .then(res => setFirstName(res.data.firstName))
+            .catch(err => console.log(err));
     }, [])
 
 
     return (
         <div>
-            <nav class="navbar bg-body-tertiary">
-                <div class="container-fluid d-flex">
+            <nav className="navbar bg-body-tertiary">
+                <div className="container-fluid d-flex">
                     <div className='align-item center'>
                         <img style={{ height: 50, width: 50 }} className='img-fluid' src={`${image}`} alt="logo" />
                     </div>
@@ -39,14 +39,14 @@ const UserDashboard = () => {
                     </div>
                     <div className='align-item center-center '>
                         <ul className='navbar-nav me-auto '>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Welcome {id} </a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Start Your Journey</a>
-                                    <a class="dropdown-item" href="#">View Profile</a>
-                                    <a class="dropdown-item" href="#">Add an Entity</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">LOGOUT</a>
+                            <li className="nav-item dropdown">
+                                <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Welcome {firstName} </a>
+                                <div className="dropdown-menu">
+                                    <a className="dropdown-item" href="#">Start Your Journey</a>
+                                    <a className="dropdown-item" href="#">View Profile</a>
+                                    <a className="dropdown-item" href="#">Add an Entity</a>
+                                    <div className="dropdown-divider"></div>
+                                    <a className="dropdown-item" href="#">LOGOUT</a>
                                 </div>
                             </li>
                         </ul>
@@ -65,7 +65,7 @@ const UserDashboard = () => {
                     <Carousel activeIndex={index} onSelect={handleSelect}>
                         {planetList.map((eachPlanet, idx) => {
                             return (
-                                <Carousel.Item>
+                                <Carousel.Item key={idx}>
                                     <img src={eachPlanet.imageURL} style={{ maxWidth: 300 }} text="First slide" />
                                     <Carousel.Caption>
                                         <h2>{eachPlanet.name}</h2>
