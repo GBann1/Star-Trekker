@@ -18,7 +18,7 @@ const UserDashboard = () => {
     };
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/planets`, {withCredentials: true})
+        axios.get(`http://localhost:8000/api/planets`, { withCredentials: true })
             .then(res => setPlanetList(res.data))
             .catch(err => console.log(err))
 
