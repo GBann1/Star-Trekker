@@ -6,8 +6,13 @@ module.exports.registerUser = (req, res) => {
     console.log("Hello")
     User.create(req.body)
         .then(user => {
+            console.log("Hello");
             req.session.save();
+            console.log("Hello2");
             res.json(req.session.user);
+            console.log("Hello3");
+            console.log("Hello4");
+            console.log("Hello5");
         })
         .catch(err => {
             console.log("In err");

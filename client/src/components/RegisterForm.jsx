@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAppContext } from "../libs/context";
 
-const RegisterForm = () => {
+const RegisterForm = (props) => {
     const { name } = props;
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
@@ -18,8 +18,8 @@ const RegisterForm = () => {
         e.preventDefault();
         setFormErrors({});
         axios.post(`http://localhost:8000/api/users`, { firstName, lastName, email, password, confirmPassword }, {withCredentials: true})
-            .then(response => {
-                setLoggedUesr(res.data);
+            .then(res => {
+                setLoggedUser(res.data);
                 navigate(`/dashboard`);
             })
             .catch(errors => setFormErrors(errors.response.data.errors));
