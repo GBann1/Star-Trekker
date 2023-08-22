@@ -24,11 +24,24 @@ module.exports.loginUser = async (req, res) => {
 
 module.exports.getAllUsers = (req, res) => {
     User.find()
-        .then((allUsers) => {res.json({allUsers: allUsers})})
-        .catch((err) => res.status(400).json(err));
+        .then((allUsers) => {
+            res.json({allUsers: allUsers})
+        })
+        .catch((err) => {
+            console.log(err);
+            res.status(400).json(err)
+        });
 }; 
 
-module.exports.getUser = (req, res) => {res.json(req.session.user)}
+module.exports.getUser = (req, res) => {
+    const user = req.session.user;
+    res.json({
+        _id: user._id,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email
+    });
+}
 
 module.exports.logout = (req, res) => {
     req.session.destroy();

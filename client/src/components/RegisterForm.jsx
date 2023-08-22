@@ -10,7 +10,7 @@ const RegisterForm = (props) => {
         lastName: "",
         email: "",
         password: "",
-        confirmPassword: "",
+        confirmPassword: ""
     });
 
     const { setLoggedUser } = useAppContext();
@@ -23,18 +23,18 @@ const RegisterForm = (props) => {
         axios.post(`http://localhost:8000/api/users`, { user }, {withCredentials: true})
             .then(res => {
                 setLoggedUser(res.data);
-                navigate(`/dashboard`);
+                navigate(`/dashboard/${res.data._id}`);
             })
             .catch(errors => setFormErrors(errors.response.data.errors));
     }
 
-    const changeHandler = (e) => {
+    const handleUpdate = (e) => {
         let {name, value} = e.target;
         setUser({
             ...user,
             [name]: value
         });
-    }
+    };
 
     return (
         <div className='container mt-5 me-5'>
@@ -42,23 +42,23 @@ const RegisterForm = (props) => {
             <form className="" onSubmit={handleSubmit}>
                 <div className="row mb-3 me-1">
                     <label htmlFor="firstName" className="col-6">First Name</label>
-                    <input className="col-6 " type="text" name="firstName" value={user.firstName} onChange={changeHandler}></input>
+                    <input className="col-6 " type="text" name="firstName" value={user.firstName} onChange={handleUpdate}></input>
                 </div>
                 <div className="row mb-3 me-1">
                     <label htmlFor="lastName" className="col-6">Last Name</label>
-                    <input className="col-6 " type="text" name="lastName" value={user.lastName} onChange={changeHandler}></input>
+                    <input className="col-6 " type="text" name="lastName" value={user.lastName} onChange={handleUpdate}></input>
                 </div>
                 <div className="row mb-3 me-1">
                     <label htmlFor="email" className="col-6">Email</label>
-                    <input className="col-6" type="email" name="email" value={user.email} onChange={changeHandler}></input>
+                    <input className="col-6" type="email" name="email" value={user.email} onChange={handleUpdate}></input>
                 </div>
                 <div className="row mb-3 me-1">
                     <label htmlFor="password" className="col-6">password</label>
-                    <input className="col-6 " type="password" name="password" value={user.password} onChange={changeHandler}></input>
+                    <input className="col-6 " type="password" name="password" value={user.password} onChange={handleUpdate}></input>
                 </div>
                 <div className="row mb-3 me-1">
                     <label htmlFor="confirmPassword" className="col-6">Confirm Password</label>
-                    <input className="col-6 " type="password" name="confirmPassword" value={user.confirmPassword} onChange={changeHandler}></input>
+                    <input className="col-6 " type="password" name="confirmPassword" value={user.confirmPassword} onChange={handleUpdate}></input>
                 </div>
                 <button className="btn btn-primary">Register</button>
             </form>
