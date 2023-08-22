@@ -14,7 +14,7 @@ const LoginForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.get(`http://localhost:8000/api/login`)
+        axios.post(`http://localhost:8000/api/users/login`, {email, password}, {withCredentials: true})
             .then(response => {
                 //map through responses and see if we get a valid one
                 const newlyCreatedUser = response.data
