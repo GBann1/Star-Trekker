@@ -7,7 +7,7 @@ import image from "../images/logo.png"
 
 const UserDashboard = () => {
     const [planetList, setPlanetList] = useState([]);
-    const [firstName, setFirstName] = useState()
+    const [user, setUser] = useState()
     const [index, setIndex] = useState(0);
 
     const { id } = useParams()
@@ -21,9 +21,9 @@ const UserDashboard = () => {
             .then(res => setPlanetList(res.data))
             .catch(err => console.log(err))
 
-        // axios.get(`http://localhost:8000/api/users/${id}`)
-        //     .then(res => setFirstName(res.data))
-        //     .catch()
+        axios.get(`http://localhost:8000/api/users/${id}`)
+            .then(res => setUser(res.data))
+            .catch(err => console.log(err))
     }, [])
 
 
@@ -40,7 +40,10 @@ const UserDashboard = () => {
                     <div className='align-item center-center '>
                         <ul className='navbar-nav me-auto '>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Welcome {id} </a>
+                                {
+                                    user ?
+                                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Welcome {user.firstName} </a> : <h1>Loading</h1>
+                                }
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="#">Start Your Journey</a>
                                     <a class="dropdown-item" href="#">View Profile</a>
