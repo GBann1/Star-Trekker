@@ -15,12 +15,12 @@ const GalaxyChart = () => {
         .catch(err => console.log(err))
     //do a map call through the array where arr[0] is x:, arr[1] is y:, arr[2] is z:
     // go down and set data ={dataPoints}
-    const convertPolarToCart = (radius, angleA, angleB) => {
-        const xVal = radius * Math.cos(angleA) * Math.sin(angleB);
-        const yVal = radius * Math.sin(angleA) * Math.sin(angleB);
-        const zVal = radius * Math.cos(angleA);
-        return { xVal, yVal, zVal };
-    }
+    // const convertPolarToCart = (radius, angleA, angleB) => {
+    //     const xVal = radius * Math.cos(angleA) * Math.sin(angleB);
+    //     const yVal = radius * Math.sin(angleA) * Math.sin(angleB);
+    //     const zVal = radius * Math.cos(angleA);
+    //     return { xVal, yVal, zVal };
+    // }
 
     const planetMap = {
         x: dataPoints.radius * Math.cos(dataPoints.angleA) * Math.sin(dataPoints.angleB),
@@ -36,18 +36,31 @@ const GalaxyChart = () => {
     };
     const layout = {
         showlegend: false,
-        xaxis: {
-            visible: false,
-            showgrid:false
+        scene:{
+            xaxis: {
+                visible: false,
+                showgrid:false,
+                showline:false,
+                showspikes: false,
+            },
+            yaxis: {
+                showgrid: false,
+                zeroline: false,
+                showline:false,
+                showspikes: false,
+            },
+            zaxis: {
+                showgrid: false,
+                visible: false,
+                showline:false,
+                showspikes: false,
+            },
+            title: {
+                visible:false
+            },
         },
-        yaxis: {
-            showgrid: false,
-            zeroline: false
-        },
-        zaxis: {
-            showgrid: false,
-            visible: false
-        }
+        width: 1200,
+        height: 1200,
 
     }
     const config = {
