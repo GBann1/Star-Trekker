@@ -12,6 +12,7 @@ const GalaxyChart = () => {
         .then(res => {
             const planetDataPoints = res.data
             setDataPoints(planetDataPoints)
+            console.log(dataPoints)
         })
         .catch(err => console.log(err))
     }, [])
@@ -25,9 +26,18 @@ const GalaxyChart = () => {
     // }
 
     const planetMap = {
-        x: dataPoints.radius * Math.cos(dataPoints.angleA) * Math.sin(dataPoints.angleB),
-        y: dataPoints.radius * Math.sin(dataPoints.angleA) * Math.sin(dataPoints.angleB),
-        z: dataPoints.radius * Math.cos(dataPoints.angleA),
+        // x: dataPoints.radius * Math.cos(dataPoints.angleA) * Math.sin(dataPoints.angleB),
+        x: dataPoints.map((planet,) => {
+            return (planet.radius * Math.cos(planet.angleA) * Math.cos(planet.angleB))
+        }),
+        // y: dataPoints.radius * Math.sin(dataPoints.angleA) * Math.sin(dataPoints.angleB),
+        y: dataPoints.map((planet) => {
+            return (planet.radius * Math.sin(planet.angleA) * Math.cos(planet.angleB))
+        }),
+        // z: dataPoints.radius * Math.cos(dataPoints.angleA),
+        z: dataPoints.map((planet) => {
+            return planet.radius * Math.cos(planet.angleA)
+        }),
         mode: 'markers',
         marker: {
             size: 10,
@@ -36,6 +46,7 @@ const GalaxyChart = () => {
         },
         type: 'scatter3d'
     };
+    // console.log(planetMap)
     const layout = {
         showlegend: false,
         scene:{
@@ -89,7 +100,7 @@ const GalaxyChart = () => {
                 data={fetchData().data}
                 layout={fetchData().layout}
             /> */}
-            <Plot data={[{
+            {/* <Plot data={[{
                 x: [1, 2, 3, 4, 5, 6, 7, 8],
                 y: [3, 1, 4, 12, 15, 9, 6, 2],
                 z: [1, 3, 5, 3, 7, 12, 6, 9],
@@ -105,6 +116,10 @@ const GalaxyChart = () => {
                 layout={layout}
                 config={config}
 
+            /> */}
+            <Plot data={planetMap}
+            layout={layout}
+            config={config}
             />
         </div>
     );
