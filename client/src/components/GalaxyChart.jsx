@@ -15,15 +15,7 @@ const GalaxyChart = () => {
         .catch(err => console.log(err))
     
     
-    // const fetchData = async () => {
-    //     const response = await fetch('https://raw.githubusercontent.com/plotly/datasets/master/3d-scatter.csv');
-    //     //takes in comma seperated values, ours will be stored as attributes
-    //     const data = await response.text();
-    //     const rows = data.split('\n').map(row => row.split(','));
-    //     function unpack(rows, key) {
-    //         return rows.map(row => row[key]);
-    //     }
-
+        //vvvvv delete vvvv
     //     const trace1 = {
     //         x: 10,
     //         y: 2,
@@ -79,10 +71,10 @@ const GalaxyChart = () => {
                 layout={fetchData().layout}
             /> */}
             <Plot data={[{
-                x:[1,2,3],
-                y:[3,1,4],
+                x:[1,2,3,4,5,6,7,8],
+                y:[3,1,4,12,15,9,6,2],
                 type:'bar',
-                
+
             }]}/>
         </div>
     );
