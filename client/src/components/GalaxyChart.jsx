@@ -49,22 +49,22 @@ const GalaxyChart = () => {
         showlegend: false,
         scene: {
             xaxis: {
-                visible: false,
+                // visible: false,
                 // showgrid: false,
-                showline: false,
-                showspikes: false,
+                // showline: false,
+                // showspikes: false,
             },
             yaxis: {
                 // showgrid: false,
-                zeroline: false,
-                showline: false,
-                showspikes: false,
+                // zeroline: false,
+                // showline: false,
+                // showspikes: false,
             },
             zaxis: {
                 // showgrid: false,
-                visible: false,
-                showline: false,
-                showspikes: false,
+                // visible: false,
+                // showline: false,
+                // showspikes: false,
             },
             title: {
                 visible: false
