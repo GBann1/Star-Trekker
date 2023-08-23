@@ -7,7 +7,7 @@ const TripSchema = new mongoose.Schema({
         type: String
     },
     planets: {
-        type: []
+        type: String
     },
     userId :{
         type: String
@@ -19,7 +19,6 @@ const TripSchema = new mongoose.Schema({
         type: Number
     }
 
-    
 }, {timestamps: true});
 
 const Trip = mongoose.model('Trip', TripSchema);
