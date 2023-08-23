@@ -35,6 +35,7 @@ app.use(
 // 6. IMPORT ROUTES
 require("./routes/planet.routes")(app);
 require("./routes/user.routes")(app);
+require("./routes/trip.routes")(app);
 
 
 // 3. listen to port
