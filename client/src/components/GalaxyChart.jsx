@@ -6,6 +6,7 @@ const GalaxyChart = () => {
     //this should get some fake data but it doesn't
     //needs to be re-written as axios call to our db to get xyz data points
     //start of our axios call
+    const keeper = 0;
     const [dataPoints, setDataPoints] = useState([]);
     useEffect(() => {
         axios.get("http://localhost:8000/api/planets")
@@ -17,7 +18,7 @@ const GalaxyChart = () => {
             console.log("res",res.data)
         })
         .catch(err => console.log(err))
-    }, [])
+    }, [keeper])
     //do a map call through the array where arr[0] is x:, arr[1] is y:, arr[2] is z:
     // go down and set data ={dataPoints}
     // const convertPolarToCart = (radius, angleA, angleB) => {
