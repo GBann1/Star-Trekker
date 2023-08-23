@@ -39,7 +39,6 @@ module.exports.getUser = (req, res) => {
         lastName: user.lastName,
         email: user.email
     });
-    console.log(user);
 }
 
 module.exports.logout = (req, res) => {
