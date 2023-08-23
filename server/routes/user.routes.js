@@ -6,5 +6,7 @@ module.exports = app => {
     app.post("/api/users/login", Users.loginUser);
     app.get("/api/users", Users.getAllUsers);
     app.get("/api/users/:id", authenticate, Users.getUser);
-    app.post("/api/users/logout", Users.logout)
+    app.post("/api/users/logout", Users.logout);
+
+    app.get("/api/users/travels/:id", Users.getTravels);
 }
