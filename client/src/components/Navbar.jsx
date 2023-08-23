@@ -43,7 +43,7 @@ const Navbar = () => {
                                     <Link className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Welcome {user.firstName} {user.lastName} </Link>
                                 }
                                 <div className="dropdown-menu">
-                                    <Link className="dropdown-item" to={"/dashboard"}>Dashboard</Link>
+                                    <Link className="dropdown-item" to={`/dashboard/${id}`}>Dashboard</Link>
                                     <Link className="dropdown-item" to="/trip">Start Your Trip</Link>
                                     <Link className="dropdown-item" to="/see_history">View Profile</Link>
                                     <Link className="dropdown-item" to="/entity">Add an Entity</Link>
