@@ -1,133 +1,91 @@
-// import React, {useState, useEffect} from 'react'
-// import { useNavigate } from 'react-router-dom';
-// import * as d3 from 'd3';
-// import axios from 'axios';
-// const GalaxyChart = () => {
-//     const [dataPoints, setDataPoints] = useState([]);
-//     const navigate = useNavigate();
-//     const data = 0
-//     axios.get('http://localhost:8000/planets')
-//         .then(res => {
-//             data = res.data
-//             setDataPoints(data)
-//         })
-//         .catch(err=>{
-//             console.log(err)
-//             navigate('/404')
-//         })
-//     var origin = [480, 300], j = 10, scale = 20, scatter = [], yLine = [], xGrid = [], beta = 0, alpha = 0, key = function (d) { return d.id; }, startAngle = Math.PI / 4;
-//     var svg = d3.select('svg').call(d3.drag().on('drag', dragged).on('start', dragStart).on('end', dragEnd)).append('g');
-//     var color = d3.scaleOrdinal(d3.schemeCategory20);
-//     var mx, my, mouseX, mouseY;
-//     var grid3d = d3._3d()
-//             .shape('GRID', 20)
-//             .origin(origin)
-//             .rotateY(startAngle)
-//             .rotateX(-startAngle)
-//             .scale(scale);
+import React, { useState } from 'react';
+import Plot from 'react-plotly.js';
+import axios from 'axios'
 
-//     var point3d = d3._3d()
-//         .x(function (d) { return d.x; })
-//         .y(function (d) { return d.y; })
-//         .z(function (d) { return d.z; })
-//         .origin(origin)
-//         .rotateY(startAngle)
-//         .rotateX(-startAngle)
-//         .scale(scale);
-//     var yScale3d = d3._3d()
-//         .shape('LINE_STRIP')
-//         .origin(origin)
-//         .rotateY(startAngle)
-//         .rotateX(-startAngle)
-//         .scale(scale);
-//     function processData(data, tt){
-//         var xGrid = svg.selectAll('path.grid').data(data[0], key);
-
+const GalaxyChart = () => {
+    //this should get some fake data but it doesn't
+    //needs to be re-written as axios call to our db to get xyz data points
+    //start of our axios call
+    const [dataPoints, setDataPoints] = useState([]);
+    axios.get("http://localhost:8000/api/planets/xyz")
+        .then(res => {
+            const planetDataPoints = res.data
+            setDataPoints(planetDataPoints)
+        })
+        .catch(err => console.log(err))
     
-//         var points = svg.selectAll('circle').data(data[1], key);
+    
+    // const fetchData = async () => {
+    //     const response = await fetch('https://raw.githubusercontent.com/plotly/datasets/master/3d-scatter.csv');
+    //     //takes in comma seperated values, ours will be stored as attributes
+    //     const data = await response.text();
+    //     const rows = data.split('\n').map(row => row.split(','));
+    //     function unpack(rows, key) {
+    //         return rows.map(row => row[key]);
+    //     }
 
-//         points
-//             .enter()
-//             .append('circle')
-//             .attr('class', '_3d')
-//             .attr('opacity', 0)
-//             .attr('cx', posPointX)
-//             .attr('cy', posPointY)
-//             .merge(points)
-//             .transition().duration(tt)
-//             .attr('r', 3)
-//             .attr('stroke', function (d) { return d3.color(color(d.id)).darker(3); })
-//             .attr('fill', function (d) { return color(d.id); })
-//             .attr('opacity', 1)
-//             .attr('cx', posPointX)
-//             .attr('cy', posPointY);
+    //     const trace1 = {
+    //         x: 10,
+    //         y: 2,
+    //         z: 18,
+    //         mode: 'markers',
+    //         marker: {
+    //             size: 12,
+    //             line: {
+    //                 color: 'rgba(217, 217, 217, 0.14)',
+    //                 width: 0.5
+    //             },
+    //             opacity: 0.8
+    //         },
+    //         type: 'scatter3d'
+    //     };
 
-//         points.exit().remove();
-//     }
-//     function posPointX(d) {
-//         return d.projected.x;
-//     }
+    //     const trace2 = {
+    //         x: unpack(rows, 'x2'),
+    //         y: unpack(rows, 'y2'),
+    //         z: unpack(rows, 'z2'),
+    //         mode: 'markers',
+    //         marker: {
+    //             color: 'rgb(127, 127, 127)',
+    //             size: 12,
+    //             symbol: 'circle',
+    //             line: {
+    //                 color: 'rgb(204, 204, 204)',
+    //                 width: 1
+    //             },
+    //             opacity: 0.8
+    //         },
+    //         type: 'scatter3d'
+    //     };
 
-//     function posPointY(d) {
-//         return d.projected.y;
-//     }
+    //     const plotData = [trace1, trace2];
 
-//     function init() {
-//         var cnt = 0;
-//         xGrid = [], scatter = [], yLine = [];
-//         for (var z = -j; z < j; z++) {
-//             for (var x = -j; x < j; x++) {
-//                 xGrid.push([x, 1, z]);
-//                 scatter.push({ x: x, y: d3.randomUniform(0, -10)(), z: z, id: 'point_' + cnt++ });
-//             }
-//         }
+    //     const layout = {
+    //         margin: {
+    //             l: 0,
+    //             r: 0,
+    //             b: 0,
+    //             t: 0
+    //         }
+    //     };
 
-//         d3.range(-1, 11, 1).forEach(function (d) { yLine.push([-j, -d, -j]); });
+    //     return { data: plotData, layout };
+    // };
 
-//         var data = [
-//             grid3d(xGrid),
-//             point3d(scatter),
-//             yScale3d([yLine])
-//         ];
-//         processData(data, 1000);
-//     }
+    return (
+        <div>
+            {/* <Plot
+                data={fetchData().data}
+                layout={fetchData().layout}
+            /> */}
+            <Plot data={[{
+                x:[1,2,3],
+                y:[3,1,4],
+                type:'bar',
+                
+            }]}/>
+        </div>
+    );
+};
 
-//     function dragStart() {
-//         mx = d3.event.x;
-//         my = d3.event.y;
-//     }
-
-//     function dragged() {
-//         mouseX = mouseX || 0;
-//         mouseY = mouseY || 0;
-//         beta = (d3.event.x - mx + mouseX) * Math.PI / 230;
-//         alpha = (d3.event.y - my + mouseY) * Math.PI / 230 * (-1);
-//         var data = [
-//             grid3d.rotateY(beta + startAngle).rotateX(alpha - startAngle)(xGrid),
-//             point3d.rotateY(beta + startAngle).rotateX(alpha - startAngle)(scatter),
-//             yScale3d.rotateY(beta + startAngle).rotateX(alpha - startAngle)([yLine]),
-//         ];
-//         processData(data, 0);
-//     }
-
-//     function dragEnd() {
-//         mouseX = d3.event.x - mx + mouseX;
-//         mouseY = d3.event.y - my + mouseY;
-//     }
-
-//     d3.selectAll('button').on('click', init);
-
-//     init();
-
-
-//     return (
-//         <div>
-//             <svg width="960" height="500"></svg>
-            
-//             <button>update</button>
-            
-//         </div>
-//     )
-// }
-
-// export default GalaxyChart
+export default GalaxyChart;

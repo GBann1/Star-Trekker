@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 const Dashboard = () => {
     //get axios call for their past travels
-    const {id} = useParams();
+    const { id } = useParams();
     const [userTravels, setUserTravels] = useState()
 
     axios.get(`http://localhost:8000/api/user/travels/${id}`)

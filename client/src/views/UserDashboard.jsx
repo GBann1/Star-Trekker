@@ -69,7 +69,6 @@ const UserDashboard = () => {
                 <p>Post reviews of each planet</p>
                 <Link to='/new/trip'>Create New trip</Link>
                 <Link to='/see_history'>See Past trips</Link>
-                {/* <GalaxyChart /> */}
             </div>
             <div>
                 <div>
@@ -87,6 +86,7 @@ const UserDashboard = () => {
                         })}
                     </Carousel>
                 </div>
+            <GalaxyChart />
             </div>
         </div >
     )
