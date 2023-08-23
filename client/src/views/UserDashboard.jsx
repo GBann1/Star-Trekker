@@ -53,9 +53,9 @@ const UserDashboard = () => {
                                     <Link className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Welcome {user.firstName} {user.lastName} </Link>
                                 }
                                 <div className="dropdown-menu">
-                                    <Link className="dropdown-item" to="">Start Your Journey</Link>
-                                    <Link className="dropdown-item" to="">View Profile</Link>
-                                    <Link className="dropdown-item" to="">Add an Entity</Link>
+                                    <Link className="dropdown-item" to="/trip">Start Your Journey</Link>
+                                    <Link className="dropdown-item" to="/see_history">View Profile</Link>
+                                    <Link className="dropdown-item" to="/entity">Add an Entity</Link>
                                     <div className="dropdown-divider"></div>
                                     <button className="dropdown-item" onClick={logoutHandler}>LOGOUT</button>
                                 </div>
