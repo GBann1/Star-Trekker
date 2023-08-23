@@ -15,7 +15,16 @@ const GalaxyChart = () => {
         .catch(err => console.log(err))
     //do a map call through the array where arr[0] is x:, arr[1] is y:, arr[2] is z:
     // go down and set data ={dataPoints}
-    
+    const convertPolarToCart = (radius, angleA, angleB) => {
+        const xVal = radius * Math.cos(angleA) * Math.sin(angleB);
+        const yVal = radius * Math.sin(angleA) * Math.sin(angleB);
+        const zVal = radius * Math.cos(angleA);
+        return {xVal, yVal, zVal};
+    }
+
+    const planetMap = {
+        
+    }
         //vvvvv delete vvvv
     //     const trace1 = {
     //         x: 10,
