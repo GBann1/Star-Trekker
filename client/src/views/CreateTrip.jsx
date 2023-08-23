@@ -16,7 +16,6 @@ const CreateTrip = () => {
         e.preventDefault()
         axios.post(`http://localhost:8000/api/trip/new`, { startDate, planets, userId, time, cost })
             .then(response => {
-                const newlyCreatedTrip = response.data
                 navigate(`/see_history`)
             })
             .catch(err => console.log(err))
