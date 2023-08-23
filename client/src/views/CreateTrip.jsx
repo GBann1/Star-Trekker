@@ -1,9 +1,9 @@
 import React from 'react'
 
-const CreateJourney = () => {
+const CreateTrip = () => {
     return (
-        <div>CreateJourney</div>
+        <div>CreateTrip</div>
     )
 }
 
-export default CreateJourney
+export default CreateTrip
