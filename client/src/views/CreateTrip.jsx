@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from "axios"
 import { useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar'
@@ -11,6 +11,16 @@ const CreateTrip = () => {
     const [cost, setCost] = useState(0)
 
     const navigate = useNavigate()
+
+    useEffect(() => {
+        axios.get(`http://localhost:8000/api/planets`)
+            .then(resp => {
+
+                setPlanets(resp.data)
+                console.log(planets)
+            })
+            .catch(err => setPlanets(err))
+    }, [])
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -31,7 +41,15 @@ const CreateTrip = () => {
                 </div>
                 <div>
                     <label >Planets</label>
-                    <input type="text" name='planets' value={planets} onChange={e => setPlanets(e.target.value)} />
+                    <select className="form-select" name="planets" id="{planets}" onChange={e => setPlanets(e.target.value)}>
+                        {planets.map((eachPlanet, idx) => {
+                            return (
+                                <option value={eachPlanet.name}>{eachPlanet.name}</option>
+
+                            )
+
+                        })}
+                    </select>
                 </div>
                 <div>
                     <label >User Id</label>
@@ -46,8 +64,8 @@ const CreateTrip = () => {
                     <input type="number" name='cost' value={cost} onChange={e => setCost(e.target.value)} />
                 </div>
                 <button type='submit' className='btn btn-primary'>Submit</button>
-            </form>
-        </div>
+            </form >
+        </div >
     )
 }
 
