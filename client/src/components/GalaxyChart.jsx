@@ -11,8 +11,10 @@ const GalaxyChart = () => {
         axios.get("http://localhost:8000/api/planets")
         .then(res => {
             const planetDataPoints = res.data
-            setDataPoints(planetDataPoints)
-            console.log(dataPoints)
+            setDataPoints([...dataPoints, planetDataPoints])
+            console.log("data",dataPoints)
+            console.log("planet",planetDataPoints)
+            console.log("res",res.data)
         })
         .catch(err => console.log(err))
     }, [])
@@ -26,15 +28,15 @@ const GalaxyChart = () => {
     // }
 
     const planetMap = {
-        // x: dataPoints.radius * Math.cos(dataPoints.angleA) * Math.sin(dataPoints.angleB),
+        // x: dataPoints[0].radius * Math.cos(dataPoints[0].angleA) * Math.sin(dataPoints[0].angleB),
         x: dataPoints.map((planet,) => {
             return (planet.radius * Math.cos(planet.angleA) * Math.cos(planet.angleB))
         }),
-        // y: dataPoints.radius * Math.sin(dataPoints.angleA) * Math.sin(dataPoints.angleB),
+        // y: dataPoints[0].radius * Math.sin(dataPoints[0].angleA) * Math.sin(dataPoints[0].angleB),
         y: dataPoints.map((planet) => {
             return (planet.radius * Math.sin(planet.angleA) * Math.cos(planet.angleB))
         }),
-        // z: dataPoints.radius * Math.cos(dataPoints.angleA),
+        // z: dataPoints[0].radius * Math.cos(dataPoints[0].angleA),
         z: dataPoints.map((planet) => {
             return planet.radius * Math.cos(planet.angleA)
         }),
@@ -72,8 +74,8 @@ const GalaxyChart = () => {
                 visible:false
             },
         },
-        width: 1200,
-        height: 1200,
+        width: 800,
+        height: 800,
 
     }
     const config = {
