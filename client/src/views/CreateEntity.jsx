@@ -1,8 +1,9 @@
 import React from 'react'
+import Navbar from '../components/Navbar'
 
 const CreateEntity = () => {
     return (
-        <div>CreateEntity</div>
+        <Navbar />
     )
 }
 
