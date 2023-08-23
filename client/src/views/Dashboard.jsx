@@ -7,7 +7,7 @@ const Dashboard = () => {
     const { id } = useParams();
     const [userTravels, setUserTravels] = useState()
 
-    axios.get(`http://localhost:8000/api/user/travels/${id}`)
+    axios.get(`http://localhost:8000/api/users/travels/${id}`)
         .then(res=>{
             const data = res.data
             setUserTravels(data)

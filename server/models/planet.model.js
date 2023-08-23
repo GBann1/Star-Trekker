@@ -25,7 +25,8 @@ const PlanetSchema = new mongoose.Schema({
     },
     imageURL: {
         type: String
-    }
+    },
+    
 }, {timestamps: true});
 
 // This is what is creating the table

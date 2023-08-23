@@ -7,7 +7,7 @@ const GalaxyChart = () => {
     //needs to be re-written as axios call to our db to get xyz data points
     //start of our axios call
     const [dataPoints, setDataPoints] = useState([]);
-    axios.get("http://localhost:8000/api/planets/xyz")
+    axios.get("http://localhost:8000/api/planets")
         .then(res => {
             const planetDataPoints = res.data
             setDataPoints(planetDataPoints)
