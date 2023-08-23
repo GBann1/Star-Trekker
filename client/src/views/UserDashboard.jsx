@@ -76,7 +76,7 @@ const UserDashboard = () => {
                         {planetList.map((eachPlanet, idx) => {
                             return (
                                 <Carousel.Item key={idx}>
-                                    <img src={eachPlanet.imageURL} style={{ maxWidth: 400, maxHeight: 300 }} text="First slide" alt="Planet"/>
+                                    <img src={eachPlanet.imageURL} style={{ maxWidth: 400, maxHeight: 300 }} text="First slide" alt="Planet" />
                                     <Carousel.Caption>
                                         <h2>{eachPlanet.name}</h2>
                                         <p></p>
@@ -86,7 +86,7 @@ const UserDashboard = () => {
                         })}
                     </Carousel>
                 </div>
-            <GalaxyChart />
+                <GalaxyChart />
             </div>
         </div >
     )

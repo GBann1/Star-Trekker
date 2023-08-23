@@ -13,7 +13,8 @@ const GalaxyChart = () => {
             setDataPoints(planetDataPoints)
         })
         .catch(err => console.log(err))
-    
+    //do a map call through the array where arr[0] is x:, arr[1] is y:, arr[2] is z:
+    // go down and set data ={dataPoints}
     
         //vvvvv delete vvvv
     //     const trace1 = {

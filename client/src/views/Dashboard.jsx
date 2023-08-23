@@ -12,7 +12,7 @@ const Dashboard = () => {
             const data = res.data
             setUserTravels(data)
         })
-        .catch(err=>console.log(err))
+        .catch(err => console.log(err))
     return (
         <div>
             <h1>Your Travels</h1>
