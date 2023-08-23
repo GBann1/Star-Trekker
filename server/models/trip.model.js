@@ -7,7 +7,7 @@ const TripSchema = new mongoose.Schema({
         type: String
     },
     planets: {
-        type: String
+        type: []
     },
     userId :{
         type: String

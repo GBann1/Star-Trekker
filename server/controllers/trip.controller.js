@@ -2,7 +2,7 @@
 const Trip = require("../models/trip.model");
 
 module.exports.APITest = (req, res) => {
-    res.json({message:"yay it works good job team"})
+    res.json({message:"yay it works good job"})
 }
 
 module.exports.allTrips = (req, res) => {
