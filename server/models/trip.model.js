@@ -6,11 +6,8 @@ const TripSchema = new mongoose.Schema({
     startDate: {
         type: String
     },
-    strtPlanet: {
-        type: String
-    },
-    endPlanet: {
-        type: String
+    planets: {
+        type: []
     },
     userId :{
         type: String
