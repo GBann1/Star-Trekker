@@ -6,7 +6,7 @@ const TripSchema = new mongoose.Schema({
     startDate: {
         type: String
     },
-    strtPlanet: {
+    startPlanet: {
         type: String
     },
     endPlanet: {
