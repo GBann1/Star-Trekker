@@ -73,7 +73,8 @@ const GalaxyChart = () => {
             <Plot data={[{
                 x:[1,2,3,4,5,6,7,8],
                 y:[3,1,4,12,15,9,6,2],
-                type:'bar',
+                z:[1,3,5,3,7,12,6,9],
+                type:'scatter3d',
 
             }]}/>
         </div>
