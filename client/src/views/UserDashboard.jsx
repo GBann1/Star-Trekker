@@ -71,12 +71,12 @@ const UserDashboard = () => {
                 <Link to='/see_history'>See Past trips</Link>
             </div>
             <div>
-                <div>
-                    <Carousel activeIndex={index} onSelect={handleSelect}>
+                <div className="d-flex justify-content-center">
+                    <Carousel activeIndex={index} onSelect={handleSelect} className="text-center">
                         {planetList.map((eachPlanet, idx) => {
                             return (
                                 <Carousel.Item key={idx}>
-                                    <img src={eachPlanet.imageURL} style={{ maxWidth: 300 }} text="First slide" />
+                                    <img src={eachPlanet.imageURL} style={{ maxWidth: 400, maxHeight: 300 }} text="First slide" alt="Planet"/>
                                     <Carousel.Caption>
                                         <h2>{eachPlanet.name}</h2>
                                         <p></p>
