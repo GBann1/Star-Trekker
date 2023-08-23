@@ -35,7 +35,7 @@ const UserDashboard = () => {
             </div>
             <div>
                 <div className="d-flex justify-content-center">
-                    <Carousel activeIndex={index} onSelect={handleSelect} className="text-center">
+                    <Carousel interval={null} activeIndex={index} onSelect={handleSelect} className="text-center">
                         {planetList.map((eachPlanet, idx) => {
                             return (
                                 <Carousel.Item key={idx}>

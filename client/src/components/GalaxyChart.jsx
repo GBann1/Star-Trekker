@@ -13,12 +13,12 @@ const GalaxyChart = () => {
         .then(res => {
             const planetDataPoints = res.data
             setDataPoints([...dataPoints, planetDataPoints])
-            console.log("data",dataPoints)
             console.log("planet",planetDataPoints)
             console.log("res",res.data)
         })
         .catch(err => console.log(err))
     }, [keeper])
+    console.log("data",dataPoints)
     //do a map call through the array where arr[0] is x:, arr[1] is y:, arr[2] is z:
     // go down and set data ={dataPoints}
     // const convertPolarToCart = (radius, angleA, angleB) => {
@@ -41,6 +41,7 @@ const GalaxyChart = () => {
         z: dataPoints.map((planet) => {
             return planet.radius * Math.cos(planet.angleA)
         }),
+        
         mode: 'markers',
         marker: {
             size: 10,
@@ -49,7 +50,7 @@ const GalaxyChart = () => {
         },
         type: 'scatter3d'
     };
-    // console.log(planetMap)
+    console.log(planetMap.x)
     const layout = {
         showlegend: false,
         scene:{
