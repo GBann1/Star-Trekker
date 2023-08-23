@@ -23,8 +23,17 @@ const GalaxyChart = () => {
     }
 
     const planetMap = {
-        
-    }
+        x: dataPoints.radius * Math.cos(dataPoints.angleA) * Math.sin(dataPoints.angleB),
+        y: dataPoints.radius * Math.sin(dataPoints.angleA) * Math.sin(dataPoints.angleB),
+        z: dataPoints.radius * Math.cos(dataPoints.angleA),
+        mode: 'markers',
+        marker: {
+            size: 10,
+            color:'rgba(217, 217, 217, 0.14)',
+            opacity: 1
+        },
+        type: 'scatter3d'
+    };
         //vvvvv delete vvvv
     //     const trace1 = {
     //         x: 10,
