@@ -50,18 +50,18 @@ const GalaxyChart = () => {
         scene: {
             xaxis: {
                 visible: false,
-                showgrid: false,
+                // showgrid: false,
                 showline: false,
                 showspikes: false,
             },
             yaxis: {
-                showgrid: false,
+                // showgrid: false,
                 zeroline: false,
                 showline: false,
                 showspikes: false,
             },
             zaxis: {
-                showgrid: false,
+                // showgrid: false,
                 visible: false,
                 showline: false,
                 showspikes: false,
