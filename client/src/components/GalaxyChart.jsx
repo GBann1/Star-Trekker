@@ -10,7 +10,7 @@ const GalaxyChart = () => {
         z: [],
         mode: 'markers',
         marker: {
-            size: 20,
+            size: 10,
             color: 'green',
             opacity: 1
         },
