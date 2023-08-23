@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Plot from 'react-plotly.js';
 import axios from 'axios'
 
@@ -7,12 +7,14 @@ const GalaxyChart = () => {
     //needs to be re-written as axios call to our db to get xyz data points
     //start of our axios call
     const [dataPoints, setDataPoints] = useState([]);
-    axios.get("http://localhost:8000/api/planets")
+    useEffect(() => {
+        axios.get("http://localhost:8000/api/planets")
         .then(res => {
             const planetDataPoints = res.data
             setDataPoints(planetDataPoints)
         })
         .catch(err => console.log(err))
+    }, [])
     //do a map call through the array where arr[0] is x:, arr[1] is y:, arr[2] is z:
     // go down and set data ={dataPoints}
     // const convertPolarToCart = (radius, angleA, angleB) => {
