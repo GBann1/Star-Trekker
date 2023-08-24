@@ -34,14 +34,14 @@ const CreateTrip = () => {
     return (
         <div>
             <Navbar />
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label >Start Date</label>
-                    <input type="text" name='startDate' value={startDate} onChange={e => setStartDate(e.target.value)} />
+            <form className="w-25 mx-auto" onSubmit={handleSubmit}>
+                <div className="form-group">
+                    <label class="form-label mt-4" >Start Date</label>
+                    <input class="form-control" type="text" name='startDate' value={startDate} onChange={e => setStartDate(e.target.value)} />
                 </div>
-                <div>
-                    <label >Planets</label>
-                    <select className="form-select" name="planets" id="{planets}" onChange={e => setPlanets(e.target.value)}>
+                <div class="form-group">
+                    <label class="form-label mt-4">Planets</label>
+                    <select class="form-select" name="planets" id="{planets}" onChange={e => setPlanets(e.target.value)}>
                         {planets.map((eachPlanet, idx) => {
                             return (
                                 <option value={eachPlanet.name}>{eachPlanet.name}</option>
@@ -51,17 +51,21 @@ const CreateTrip = () => {
                         })}
                     </select>
                 </div>
-                <div>
-                    <label >User Id</label>
-                    <input type="text" name='userId' value={userId} onChange={e => setUserId(e.target.value)} />
+                <div class="form-group">
+                    <label class="form-label mt-4">User Id</label>
+                    <input class="form-select" type="text" name='userId' value={userId} onChange={e => setUserId(e.target.value)} />
                 </div>
-                <div>
-                    <label >Time</label>
-                    <input type="number" name='time' value={time} onChange={e => setTime(e.target.value)} />
+                <div class="form-group">
+                    <label class="form-label mt-4">Time</label>
+                    <input class="form-select" type="number" name='time' value={time} onChange={e => setTime(e.target.value)} />
                 </div>
-                <div>
-                    <label >Cost</label>
-                    <input type="number" name='cost' value={cost} onChange={e => setCost(e.target.value)} />
+                <div class="form-group">
+                    <label class="form-label mt-4">Cost</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">$</span>
+                        <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" name='cost' value={cost} onChange={e => setCost(e.target.value)} />
+                        <span class="input-group-text">.00</span>
+                    </div>
                 </div>
                 <button type='submit' className='btn btn-primary'>Submit</button>
             </form >
