@@ -50,7 +50,7 @@ const AddTrip = () => {
         e.preventDefault()
         axios.post(`http://localhost:8000/api/trips/new`, { trip })
             .then(response => {
-                navigate(`/see_history`)
+                navigate(`/see_history/${id}`)
             })
             .catch(err => console.log(err))
     }
