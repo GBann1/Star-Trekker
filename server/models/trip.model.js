@@ -13,10 +13,10 @@ const TripSchema = new mongoose.Schema({
         type: String
     },
     time: {
-        type: Number
+        type: String
     },
     cost: {
-        type: Number
+        type: String
     },
     userId :{
         type: String

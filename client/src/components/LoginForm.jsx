@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react';
 import axios from "axios";
 import UserContext from "../context/UserContext";
 import { useNavigate } from 'react-router-dom';
-import { useAppContext } from "../libs/context";
 
 const LoginForm = () => {
     const [user, setUser] = useState({
@@ -14,7 +13,6 @@ const LoginForm = () => {
 
     const [formData, setFormData] = useState('');
     const [formErrors, setFormErrors] = useState({});
-    const { setLoggedUser } = useAppContext();
 
     const navigate = useNavigate();
 
@@ -24,7 +22,7 @@ const LoginForm = () => {
             .then(response => {
                 //map through responses and see if we get a valid one
                 setUserID(response.data._id);
-                console.log(response.data._id);
+                localStorage.setItem("userID", response.data._id);
                 navigate(`/`)
                 navigate(`/dashboard`)
             })

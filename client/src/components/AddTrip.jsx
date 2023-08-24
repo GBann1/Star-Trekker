@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
-import axios from "axios"
+import React, { useState, useEffect, useContext } from 'react';
+import UserContext from "../context/UserContext";
+import { useNavigate } from 'react-router-dom';
+import axios from "axios";
 
 const AddTrip = () => {
 
-    const { id } = useParams();
+    const { userID } = useContext(UserContext);
     const [planets, setPlanets] = useState([]);
     const [planetData, setPlanetData] = useState(null);
 
@@ -14,7 +15,7 @@ const AddTrip = () => {
         destination: "",
         time: 0,
         cost: 0,
-        userId: id
+        userId: userID
     })
 
     const navigate = useNavigate();
@@ -48,9 +49,9 @@ const AddTrip = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post(`http://localhost:8000/api/trips/new`, trip )
+        axios.post(`http://localhost:8000/api/trips/new`, {trip} )
             .then(response => {
-                navigate(`/see_history/${id}`)
+                navigate(`/see_history`)
             })
             .catch(err => console.log(err))
     }
@@ -68,11 +69,18 @@ const AddTrip = () => {
 
                 setTrip({
                     ...trip,
-                    startPlanet: value,
+                    [name]: value,
                     cost: fuel, 
                     time: time,
                 });
-            }}
+            }
+        }
+        else {
+            setTrip({
+                ...trip,
+                [name]: value
+            })
+        }
     };
 
     return (
@@ -87,7 +95,7 @@ const AddTrip = () => {
                     <select className="form-select w-25" name="startPlanet" onChange={handleChange}>
                         {planets.map((eachPlanet, idx) => {
                             return (
-                                <option value={eachPlanet.name}>{eachPlanet.name}</option>
+                                <option key={idx} value={eachPlanet.name}>{eachPlanet.name}</option>
                             )
                         })}
                     </select>
@@ -98,7 +106,7 @@ const AddTrip = () => {
                         {planets.map((eachPlanet, idx) => {
                             return (
 
-                                <option value={eachPlanet.name}>{eachPlanet.name}</option>
+                                <option key={idx} value={eachPlanet.name}>{eachPlanet.name}</option>
                             )
                         })}
                     </select>

@@ -1,7 +1,7 @@
 import axios from "axios";
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAppContext } from "../libs/context";
+import UserContext from "../context/UserContext";
 
 const RegisterForm = (props) => {
     const { name } = props;
@@ -13,7 +13,8 @@ const RegisterForm = (props) => {
         confirmPassword: ""
     });
 
-    const { setLoggedUser } = useAppContext();
+    const {setUserID} = useContext(UserContext);
+
     const [formErrors, setFormErrors] = useState([]);
     const navigate = useNavigate();
 
@@ -22,8 +23,8 @@ const RegisterForm = (props) => {
         setFormErrors({});
         axios.post(`http://localhost:8000/api/users`, { user }, { withCredentials: true })
             .then(res => {
-                setLoggedUser(res.data);
-                navigate(`/dashboard/${res.data._id}`);
+                setUserID(res.data._id);
+                navigate(`/dashboard`);
             })
             .catch(errors => setFormErrors(errors.response.data.errors));
     }
