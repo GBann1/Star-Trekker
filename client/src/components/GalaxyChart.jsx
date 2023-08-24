@@ -43,7 +43,7 @@ const GalaxyChart = () => {
             })
             .catch(err => console.log(err))
     }, [])
-    
+
 
     const layout = {
         showlegend: false,
@@ -73,10 +73,10 @@ const GalaxyChart = () => {
         width: 800,
         height: 800,
         margin: {
-            l:0,
-            r:0,
-            t:0,
-            b:0
+            l: 0,
+            r: 0,
+            t: 0,
+            b: 0
         }
 
     }
@@ -86,8 +86,8 @@ const GalaxyChart = () => {
 
 
     return (
-        <div>
-            
+        <div className='text-center'>
+
             {/* <Plot data={[{
                 x: [1, 2, 3, 4, 5, 6, 7, 8],
                 y: [3, 1, 4, 12, 15, 9, 6, 2],
