@@ -49,7 +49,7 @@ const AddTrip = () => {
             <form onSubmit={handleSubmit}>
                 <div>
                     <label >Start Date</label>
-                    <input type="text" name='startDate' value={trip.startDate} onChange={handleChange} />
+                    <input type="date" name='startDate' value={trip.startDate} onChange={handleChange} />
                 </div>
                 <div>
                     <label>Starting Point:</label>
