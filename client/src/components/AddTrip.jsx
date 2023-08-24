@@ -48,7 +48,7 @@ const AddTrip = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post(`http://localhost:8000/api/trips/new`, { trip })
+        axios.post(`http://localhost:8000/api/trips/new`, trip )
             .then(response => {
                 navigate(`/see_history/${id}`)
             })
@@ -68,19 +68,11 @@ const AddTrip = () => {
 
                 setTrip({
                     ...trip,
-                    [name]: value,
-                    fuelCost: fuel,
-                    travelTime: time,
+                    startPlanet: value,
                     cost: fuel, 
                     time: time,
                 });
-            }
-        } else {
-            setTrip({
-                ...trip,
-                [name]: value,
-            });
-        }
+            }}
     };
 
     return (
@@ -113,11 +105,11 @@ const AddTrip = () => {
                 </div>
                 <div>
                     <label>Estimated Fuel Cost</label>
-                    <p>$ {trip.fuelCost || 'N/A'}</p>
+                    <p>$ {trip.cost || 'N/A'}</p>
                 </div>
                 <div>
                     <label>Estimated Travel Time</label>
-                    <p>{trip.travelTime || 'N/A'} days</p>
+                    <p>{trip.time || 'N/A'} days</p>
                 </div>
                 <button type='submit' className='btn btn-primary'>Submit</button>
             </form >
