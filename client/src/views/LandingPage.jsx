@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import image from "../images/logo.png"
-import GalaxyChart from './GalaxyChart'
+import GalaxyChart from '../components/GalaxyChart'
 const LandingPage = () => {
     const navigate = useNavigate();
     return (
