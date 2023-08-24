@@ -20,7 +20,7 @@ const RegisterForm = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setFormErrors({});
-        axios.post(`http://localhost:8000/api/users`, { user }, {withCredentials: true})
+        axios.post(`http://localhost:8000/api/users`, { user }, { withCredentials: true })
             .then(res => {
                 setLoggedUser(res.data);
                 navigate(`/dashboard/${res.data._id}`);
@@ -29,7 +29,7 @@ const RegisterForm = (props) => {
     }
 
     const handleUpdate = (e) => {
-        let {name, value} = e.target;
+        let { name, value } = e.target;
         setUser({
             ...user,
             [name]: value
@@ -37,7 +37,7 @@ const RegisterForm = (props) => {
     }
 
     return (
-        <div className='container mt-5 me-5'>
+        <div className=' mt-5 me-auto  w-25'>
             <h2 className='mb-5'>REGISTER</h2>
             <form className="" onSubmit={handleSubmit}>
                 <div className="row mb-3 me-1">
