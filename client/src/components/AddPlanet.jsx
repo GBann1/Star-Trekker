@@ -41,7 +41,7 @@ const AddPlanet = () => {
     return (
         <div>
             <h1 className='m-auto'>New Planet Information</h1>
-            <form onSubmit={submitHandler}>
+            {/* <form onSubmit={submitHandler}>
                 <label>Name:</label>
                 <input type="text" value={planet.planetName} onChange={setPlanet.planetName(e.target.value)}/>
                 <label>Rotation period:</label>
@@ -61,7 +61,7 @@ const AddPlanet = () => {
                 <label>Population</label>
                 <input type="number" value={planet.population} onChange={setPlanet.population(e.target.value)}/>
                 <input type="submit" value="Log Planet"/>
-            </form>
+            </form> */}
         </div>
     )
 }
