@@ -26,6 +26,7 @@ const DisplayTrips = () => {
                     <tr>
                         <th scope="col">Date</th>
                         <th scope="col">Fuel Cost</th>
+                        <th scope="col">Start Planet</th>
                         <th scope="col">Destination</th>
                         <th scope="col">Travel Time</th>
                     </tr>
@@ -35,10 +36,10 @@ const DisplayTrips = () => {
                         // This needs to be a table to keep with our wireframe
                         return (
                             <tr className="table-light" key={idx}>
-
                                 <td>{trip.startDate}</td>
                                 <td>$ {trip.cost}</td>
-                                <td>{trip.startPlanet} - {trip.destination}</td>
+                                <td>{trip.startPlanet}</td>
+                                <td>{trip.destination}</td>
                                 <td>{trip.time} days</td>
                             </tr>
                         )
