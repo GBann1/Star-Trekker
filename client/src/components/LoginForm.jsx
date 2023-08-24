@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from "axios";
+import UserContext from "../context/UserContext";
 import { useNavigate } from 'react-router-dom';
 import { useAppContext } from "../libs/context";
 
@@ -8,6 +9,8 @@ const LoginForm = () => {
         email: "",
         password: ""
     });
+
+    const {setUserID} = useContext(UserContext);
 
     const [formData, setFormData] = useState('');
     const [formErrors, setFormErrors] = useState({});
@@ -20,9 +23,10 @@ const LoginForm = () => {
         axios.post(`http://localhost:8000/api/users/login`, { user }, { withCredentials: true })
             .then(response => {
                 //map through responses and see if we get a valid one
-                const newlyCreatedUser = response.data;
+                setUserID(response.data._id);
+                console.log(response.data._id);
                 navigate(`/`)
-                navigate(`/dashboard/${newlyCreatedUser._id}`)
+                navigate(`/dashboard`)
             })
             .catch(errors => setFormErrors(errors.response.data.errros))
     }
