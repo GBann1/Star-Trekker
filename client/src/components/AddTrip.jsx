@@ -11,8 +11,8 @@ const AddTrip = () => {
 
     const [trip, setTrip] = useState({
         startDate: "",
-        startPlanet: "",
-        destination: "",
+        startPlanet: "Earth",
+        destination: "Mercury",
         time: 0,
         cost: 0,
         userId: userID
@@ -92,7 +92,7 @@ const AddTrip = () => {
                 </div>
                 <div>
                     <label>Starting Point:</label>
-                    <select className="form-select w-25" name="startPlanet" onChange={handleChange}>
+                    <select className="form-select w-25" name="startPlanet" value={trip.startPlanet} onChange={handleChange}>
                         {planets.map((eachPlanet, idx) => {
                             return (
                                 <option key={idx} value={eachPlanet.name}>{eachPlanet.name}</option>
@@ -113,11 +113,11 @@ const AddTrip = () => {
                 </div>
                 <div>
                     <label>Estimated Fuel Cost</label>
-                    <p>$ {trip.cost || 'N/A'}</p>
+                    <p>$ {trip.cost || ''}</p>
                 </div>
                 <div>
                     <label>Estimated Travel Time</label>
-                    <p>{trip.time || 'N/A'} days</p>
+                    <p>{trip.time || ''} days</p>
                 </div>
                 <button type='submit' className='btn btn-primary'>Submit</button>
             </form >
