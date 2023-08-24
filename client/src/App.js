@@ -23,7 +23,7 @@ function App() {
         <Route path='/dashboard' element={<UserDashboard />} />
         <Route path='/dashboard/:id' element={<UserDashboard />} />
         <Route path='/see_history' element={<Dashboard />} />
-        <Route path='/trip' element={<CreateTrip />} />
+        <Route path='/trip/:id' element={<CreateTrip />} />
         <Route path='/entity' element={<CreateEntity />} />
 
 

@@ -6,10 +6,10 @@ const TripSchema = new mongoose.Schema({
     startDate: {
         type: String
     },
-    planets: {
-        type: []
+    startPlanet: {
+        type: String
     },
-    userId :{
+    destination: {
         type: String
     },
     time: {
@@ -17,8 +17,10 @@ const TripSchema = new mongoose.Schema({
     },
     cost: {
         type: Number
+    },
+    userId :{
+        type: String
     }
-
 }, {timestamps: true});
 
 const Trip = mongoose.model('Trip', TripSchema);

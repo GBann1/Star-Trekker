@@ -18,7 +18,7 @@ module.exports.oneTrip = (req, res) => {
 }
 
 module.exports.addTrip = (req, res) => {
-    Trip.create(req.body)
+    Trip.create(req.body.trip)
         .then(newTrip=>res.json(newTrip))
         .catch(err=>res.status(400).json(err))
 }
