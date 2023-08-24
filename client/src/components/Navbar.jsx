@@ -5,9 +5,7 @@ import image from "../images/logo.png"
 
 const Navbar = () => {
     const [user, setUser] = useState()
-
     const navigate = useNavigate();
-
     const { id } = useParams()
 
     useEffect(() => {
@@ -21,7 +19,10 @@ const Navbar = () => {
             .then(res => {
                 navigate("/");
             })
-            .catch(err => console.log(err));
+            .catch(err => {
+                console.log(err)
+                navigate('/404')
+            });
     }
     
     return (
@@ -31,9 +32,11 @@ const Navbar = () => {
                     <div className='align-item center'>
                         <button  onClick={()=> navigate(`/dashboard/${id}`)}><img style={{ height: 50, width: 50 }} className='img-fluid' src={`${image}`} alt="logo" /></button>
                     </div>
+
                     <div>
                         <h1 className='align-item center-center ' onClick={()=> navigate(`/dashboard/${id}`)}>Star Trekkers</h1>
                     </div>
+
                     <div className='align-item center-center '>
                         <ul className='navbar-nav me-auto '>
                             <li className="nav-item dropdown">
