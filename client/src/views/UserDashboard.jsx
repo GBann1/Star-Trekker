@@ -11,7 +11,7 @@ const UserDashboard = () => {
             <div>
                 <p>Display Planet detail cards (carousel)</p>
                 <p>Post reviews of each planet</p>
-                <Link to='/new/trip'>Create New trip</Link>
+                <Link to='/trip'>Create New trip</Link>
                 <Link to='/see_history'>See Past trips</Link>
             </div>
             <div>
