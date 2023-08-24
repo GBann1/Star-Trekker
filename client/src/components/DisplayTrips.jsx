@@ -24,8 +24,8 @@ const DisplayTrips = () => {
             <table className="table table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">Date:</th>
-                        <th scope="col">Length</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Fuel Cost</th>
                         <th scope="col">Destination</th>
                         <th scope="col">Travel Time</th>
                     </tr>
@@ -37,12 +37,9 @@ const DisplayTrips = () => {
                             <tr className="table-light" key={idx}>
 
                                 <td>{trip.startDate}</td>
-                                <td>{trip.time}</td>
-
-
+                                <td>$ {trip.cost}</td>
                                 <td>{trip.startPlanet} - {trip.destination}</td>
-
-                                <td>{trip.time}</td>
+                                <td>{trip.time} days</td>
                             </tr>
                         )
                     })}
