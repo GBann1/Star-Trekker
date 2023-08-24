@@ -11,30 +11,30 @@ const DisplayTrips = () => {
         axios.get(`http://localhost:8000/api/trips/${userID}`)
             .then(res => {
                 const data = res.data
+                // setTrips([...trips, data])
                 setTrips(data)
             })
             .catch(err => console.log(err))
 
-    }, []
-
-    )
+    }, [])
+    console.log(trips)
 
     return (
         <div>
-            <table>
+            <table className="table table-hover">
                 <thead>
                     <tr>
-                        <th>Date:</th>
-                        <th>Length</th>
-                        <th>Destination</th>
-                        <th>Travel Time</th>
+                        <th scope="col">Date:</th>
+                        <th scope="col">Length</th>
+                        <th scope="col">Destination</th>
+                        <th scope="col">Travel Time</th>
                     </tr>
                 </thead>
                 <tbody>
                     {trips.map((trip, idx) => {
                         // This needs to be a table to keep with our wireframe
                         return (
-                            <tr key={idx}>
+                            <tr className="table-light" key={idx}>
 
                                 <td>{trip.startDate}</td>
                                 <td>{trip.time}</td>

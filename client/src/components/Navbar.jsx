@@ -26,7 +26,7 @@ const Navbar = () => {
                 navigate('/404')
             });
     }
-    
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg bg-light" data-bs-theme="light">
@@ -49,7 +49,7 @@ const Navbar = () => {
                                 <div className="dropdown-menu">
                                     <Link className="dropdown-item" to={`/dashboard`}>Dashboard</Link>
                                     <Link className="dropdown-item" to="/trip">Start Your Trip</Link>
-                                    <Link className="dropdown-item" to="/see_history">View Profile</Link>
+                                    <Link className="dropdown-item" to={`/see_history/${id}`}>View Profile</Link>
                                     <Link className="dropdown-item" to="/entity">Add an Entity</Link>
                                     <div className="dropdown-divider"></div>
                                     <button className="dropdown-item" onClick={logoutHandler}>LOGOUT</button>
