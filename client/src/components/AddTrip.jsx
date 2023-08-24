@@ -71,6 +71,8 @@ const AddTrip = () => {
                     [name]: value,
                     fuelCost: fuel,
                     travelTime: time,
+                    cost: fuel, 
+                    time: time,
                 });
             }
         } else {
