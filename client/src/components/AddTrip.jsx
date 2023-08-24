@@ -56,12 +56,30 @@ const AddTrip = () => {
     }
 
     const handleChange = (e) => {
-        let { name, value } = e.target;
-        setTrip({
-            ...trip,
-            [name]: value
-        });
-    }
+        const { name, value } = e.target;
+
+        if (name === 'startPlanet' || name === 'destination') {
+            const selectedPlanetData = planets.find((planet) => planet.name === value);
+
+            if (selectedPlanetData) {
+                setPlanetData(selectedPlanetData);
+                const fuel = calculateFuel(selectedPlanetData);
+                const time = calculateTime(selectedPlanetData);
+
+                setTrip({
+                    ...trip,
+                    [name]: value,
+                    fuelCost: fuel,
+                    travelTime: time,
+                });
+            }
+        } else {
+            setTrip({
+                ...trip,
+                [name]: value,
+            });
+        }
+    };
 
     return (
         <div>
@@ -91,12 +109,12 @@ const AddTrip = () => {
                     </select>
                 </div>
                 <div>
-                    <label>Calculated Fuel Cost</label>
-                    <p>{planetData ? (trip.fuelCost || 'N/A') : 'Please select a planet'}</p>
+                    <label>Estimated Fuel Cost</label>
+                    <p>$ {trip.fuelCost || 'N/A'}</p>
                 </div>
                 <div>
-                    <label>Calculated Travel Time</label>
-                    <p>{planetData ? (trip.travelTime || 'N/A') : 'Please select a planet'}</p>
+                    <label>Estimated Travel Time</label>
+                    <p>{trip.travelTime || 'N/A'} days</p>
                 </div>
                 <button type='submit' className='btn btn-primary'>Submit</button>
             </form >
