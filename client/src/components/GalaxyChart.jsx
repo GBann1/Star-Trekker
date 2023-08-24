@@ -72,6 +72,12 @@ const GalaxyChart = () => {
         },
         width: 800,
         height: 800,
+        margin: {
+            l:0,
+            r:0,
+            t:0,
+            b:0
+        }
 
     }
     const config = {

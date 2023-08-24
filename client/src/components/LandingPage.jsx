@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import image from "../images/logo.png"
-
+import GalaxyChart from './GalaxyChart'
 const LandingPage = () => {
     const navigate = useNavigate();
     return (
@@ -22,6 +22,7 @@ const LandingPage = () => {
             <h2>Welcome to Star Trekkers home site!</h2>
             <p>Here you can explore all of the features of our website and play around with some of the content.</p>
             <p>We hope you enjoy!</p>
+            <GalaxyChart/>
         </div>
     )
 }

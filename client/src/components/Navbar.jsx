@@ -4,11 +4,8 @@ import axios from 'axios'
 import image from "../images/logo.png"
 
 const Navbar = () => {
-
     const [user, setUser] = useState()
-
     const navigate = useNavigate();
-
     const { id } = useParams()
 
     useEffect(() => {
@@ -22,19 +19,24 @@ const Navbar = () => {
             .then(res => {
                 navigate("/");
             })
-            .catch(err => console.log(err));
+            .catch(err => {
+                console.log(err)
+                navigate('/404')
+            });
     }
-
+    
     return (
         <div>
             <nav className="navbar navbar-expand-lg bg-light" data-bs-theme="light">
                 <div className="container-fluid d-flex">
                     <div className='align-item center'>
-                        <img style={{ height: 50, width: 50 }} className='img-fluid' src={`${image}`} alt="logo" />
+                        <button  onClick={()=> navigate(`/dashboard/${id}`)}><img style={{ height: 50, width: 50 }} className='img-fluid' src={`${image}`} alt="logo" /></button>
                     </div>
+
                     <div>
-                        <h1 className='align-item center-center '>Star Trekkers</h1>
+                        <h1 className='align-item center-center ' onClick={()=> navigate(`/dashboard/${id}`)}>Star Trekkers</h1>
                     </div>
+
                     <div className='align-item center-center '>
                         <ul className='navbar-nav me-auto '>
                             <li className="nav-item dropdown">
