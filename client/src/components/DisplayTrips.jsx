@@ -42,9 +42,7 @@ const DisplayTrips = () => {
                                 <td>{trip.destination}</td>
                                 <td>{trip.time} days</td>
                             </tr>
-                        )
-                    })}
-
+                        )})}
                 </tbody>
             </table>
         </div>
