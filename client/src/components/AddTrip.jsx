@@ -103,6 +103,7 @@ const AddTrip = () => {
                     <select className="form-select w-25" name="destination" id="{planets}" onChange={handleChange}>
                         {planets.map((eachPlanet, idx) => {
                             return (
+
                                 <option value={eachPlanet.name}>{eachPlanet.name}</option>
                             )
                         })}
