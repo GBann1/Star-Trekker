@@ -17,7 +17,7 @@ const LoginForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post(`http://localhost:8000/api/users/login`, {user}, {withCredentials: true})
+        axios.post(`http://localhost:8000/api/users/login`, { user }, { withCredentials: true })
             .then(response => {
                 //map through responses and see if we get a valid one
                 const newlyCreatedUser = response.data;
@@ -28,7 +28,7 @@ const LoginForm = () => {
     }
 
     const handleUpdate = (e) => {
-        let {name, value} = e.target;
+        let { name, value } = e.target;
         setUser({
             ...user,
             [name]: value
@@ -36,7 +36,7 @@ const LoginForm = () => {
     }
 
     return (
-        <div className='container mt-5'>
+        <div className=' mx-auto mt-5  w-25'>
             <h2 className='mb-5'>LOGIN</h2>
             <form onSubmit={handleSubmit}>
                 <div className="row mb-3 me-1">
