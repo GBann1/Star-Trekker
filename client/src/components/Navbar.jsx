@@ -7,6 +7,7 @@ const Navbar = () => {
     const [user, setUser] = useState()
     const navigate = useNavigate();
     const { id } = useParams()
+    
 
     useEffect(() => {
         axios.get(`http://localhost:8000/api/users/${id}`, { withCredentials: true })

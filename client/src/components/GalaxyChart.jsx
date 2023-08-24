@@ -11,7 +11,7 @@ const GalaxyChart = () => {
         mode: 'markers',
         marker: {
             size: 10,
-            color: 'green',
+            color: 'purple',
             opacity: 1
         },
         type: 'scatter3d',
