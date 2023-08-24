@@ -22,7 +22,7 @@ function App() {
         <Route path='/login_or_register' element={<LoginPage />} />
         <Route path='/dashboard' element={<UserDashboard />} />
         <Route path='/dashboard/:id' element={<UserDashboard />} />
-        <Route path='/see_history' element={<Dashboard />} />
+        <Route path='/see_history/:id' element={<Dashboard />} />
         <Route path='/trip/:id' element={<CreateTrip />} />
         <Route path='/entity' element={<CreateEntity />} />
 

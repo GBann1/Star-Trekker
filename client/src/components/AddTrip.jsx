@@ -4,7 +4,7 @@ import axios from "axios"
 
 const AddTrip = () => {
 
-    const {id} = useParams();
+    const { id } = useParams();
     const [planets, setPlanets] = useState([]);
 
     const [trip, setTrip] = useState({
@@ -29,7 +29,7 @@ const AddTrip = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post(`http://localhost:8000/api/trips/new`, {trip})
+        axios.post(`http://localhost:8000/api/trips/new`, { trip })
             .then(response => {
                 navigate(`/see_history`)
             })
@@ -37,7 +37,7 @@ const AddTrip = () => {
     }
 
     const handleChange = (e) => {
-        let {name, value} = e.target;
+        let { name, value } = e.target;
         setTrip({
             ...trip,
             [name]: value
