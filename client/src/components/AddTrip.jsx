@@ -6,6 +6,7 @@ const AddTrip = () => {
 
     const { id } = useParams();
     const [planets, setPlanets] = useState([]);
+    const [planetData, setPlanetData] = useState(null);
 
     const [trip, setTrip] = useState({
         startDate: "",
@@ -17,6 +18,24 @@ const AddTrip = () => {
     })
 
     const navigate = useNavigate();
+
+    const calculateFuel = (planetData) => {
+        if (planetData && planetData.distance_light_year) {
+            const distMiles = planetData.distance_light_year * 5878625000000;
+            const fuelCost = (distMiles / 8.3) * 1.65;
+            return fuelCost.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        return "Nope";
+    };
+
+    const calculateTime = (planetData) => {
+        if (planetData && planetData.distance_light_year) {
+            const distMiles = planetData.distance_light_year * 5878625000000;
+            const time = (distMiles / 16150) / 24;
+            return time.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        return "Nah";
+    };
 
     useEffect(() => {
         axios.get(`http://localhost:8000/api/planets`)
@@ -72,12 +91,12 @@ const AddTrip = () => {
                     </select>
                 </div>
                 <div>
-                    <label >Time</label>
-                    <input type="number" name='time' value={trip.time} onChange={handleChange} />
+                    <label>Calculated Fuel Cost</label>
+                    <p>{planetData ? (trip.fuelCost || 'N/A') : 'Please select a planet'}</p>
                 </div>
                 <div>
-                    <label >Cost</label>
-                    <input type="number" name='cost' value={trip.cost} onChange={handleChange} />
+                    <label>Calculated Travel Time</label>
+                    <p>{planetData ? (trip.travelTime || 'N/A') : 'Please select a planet'}</p>
                 </div>
                 <button type='submit' className='btn btn-primary'>Submit</button>
             </form >
@@ -85,4 +104,5 @@ const AddTrip = () => {
     )
 }
 
-export default AddTrip
+
+export default AddTrip;
