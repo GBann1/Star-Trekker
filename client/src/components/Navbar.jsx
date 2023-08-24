@@ -24,17 +24,17 @@ const Navbar = () => {
                 navigate('/404')
             });
     }
-    
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg bg-light" data-bs-theme="light">
                 <div className="container-fluid d-flex">
                     <div className='align-item center'>
-                        <button  onClick={()=> navigate(`/dashboard/${id}`)}><img style={{ height: 50, width: 50 }} className='img-fluid' src={`${image}`} alt="logo" /></button>
+                        <button onClick={() => navigate(`/dashboard/${id}`)}><img style={{ height: 50, width: 50 }} className='img-fluid' src={`${image}`} alt="logo" /></button>
                     </div>
 
                     <div>
-                        <h1 className='align-item center-center ' onClick={()=> navigate(`/dashboard/${id}`)}>Star Trekkers</h1>
+                        <h1 className='align-item center-center ' onClick={() => navigate(`/dashboard/${id}`)}>Star Trekkers</h1>
                     </div>
 
                     <div className='align-item center-center '>
@@ -47,7 +47,7 @@ const Navbar = () => {
                                 <div className="dropdown-menu">
                                     <Link className="dropdown-item" to={`/dashboard/${id}`}>Dashboard</Link>
                                     <Link className="dropdown-item" to="/trip">Start Your Trip</Link>
-                                    <Link className="dropdown-item" to="/see_history">View Profile</Link>
+                                    <Link className="dropdown-item" to={`/see_history/${id}`}>View Profile</Link>
                                     <Link className="dropdown-item" to="/entity">Add an Entity</Link>
                                     <div className="dropdown-divider"></div>
                                     <button className="dropdown-item" onClick={logoutHandler}>LOGOUT</button>
