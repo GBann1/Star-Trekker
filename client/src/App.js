@@ -2,10 +2,9 @@ import "bootswatch/dist/solar/bootstrap.min.css"
 import './App.css';
 import { Routes, Route, Link } from 'react-router-dom';
 import LoginPage from './views/LoginPage';
-import LandingPage from './components/LandingPage';
+import LandingPage from './views/LandingPage';
 import Dashboard from './views/Dashboard';
 import UserDashboard from './views/UserDashboard';
-import GalaxyChart from './components/GalaxyChart';
 import Page404 from './views/Page404';
 import AppContext from './libs/context';
 import { useState } from "react";

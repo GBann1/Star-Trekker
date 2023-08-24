@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from "axios"
 
 const AddTrip = () => {
@@ -7,6 +8,8 @@ const AddTrip = () => {
     const [userId, setUserId] = useState("")
     const [time, setTime] = useState(0)
     const [cost, setCost] = useState(0)
+    const navigate = useNavigate();
+
 
     useEffect(() => {
         axios.get(`http://localhost:8000/api/planets`)

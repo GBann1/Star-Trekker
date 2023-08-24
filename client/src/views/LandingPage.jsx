@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import image from "../images/logo.png"
 import GalaxyChart from '../components/GalaxyChart'
 const LandingPage = () => {
+    const navigate = useNavigate();
+
     return (
         <div className="mh-100">
             {/* Leave this NOT a Navbar component as the navbar component has clickable buttons now */}
