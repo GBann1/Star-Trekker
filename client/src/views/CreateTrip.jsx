@@ -67,7 +67,7 @@ const CreateTrip = () => {
                         <span className="input-group-text">.00</span>
                     </div>
                 </div>
-                <button type='submit' classNameName='btn btn-primary'>Submit</button>
+                <button type='submit' className='btn btn-primary'>Submit</button>
             </form >
         </div >
     )
