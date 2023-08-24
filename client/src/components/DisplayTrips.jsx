@@ -4,14 +4,20 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 const DisplayTrips = () => {
     const { id } = useParams();
-    const [userTravels, setUserTravels] = useState([])
+    const [trips, setTrips] = useState([])
 
-    axios.get(`http://localhost:8000/api/users/travels/${id}`)
-        .then(res => {
-            const data = res.data
-            setUserTravels(data)
-        })
-        .catch(err => console.log(err))
+    useEffect(() => {
+        axios.get(`http://localhost:8000/api/trips/${id}`)
+            .then(res => {
+                const data = res.data
+                setTrips(data)
+                console.log(id)
+            })
+            .catch(err => console.log(err))
+
+    }, []
+
+    )
 
     return (
         <div>
@@ -23,16 +29,16 @@ const DisplayTrips = () => {
                     <th>Travel Time</th>
                 </thead>
                 <tbody>
-                    {userTravels.map((trip, idx) => {
+                    {trips.map((trip, idx) => {
                         // This needs to be a table to keep with our wireframe
                         return (
                             <tr key={idx}>
 
-                                <td>{trip.date}</td>
-                                <td>{trip.length}</td>
+                                <td>{trip.startDate}</td>
+                                <td>{trip.time}</td>
 
 
-                                <td>{trip.strtplanet} - {trip.endplanet}</td>
+                                <td>{trip.strtplanet} - {trip.destination}</td>
 
                                 <td>{trip.time}</td>
                             </tr>
