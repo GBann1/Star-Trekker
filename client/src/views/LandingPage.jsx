@@ -6,6 +6,7 @@ const LandingPage = () => {
     const navigate = useNavigate();
     return (
         <div className="mh-100">
+            {/* Leave this NOT a Navbar component as the navbar component has clickable buttons now */}
             <nav className="navbar bg-body-tertiary">
                 <div className="container-fluid d-flex">
                     <div className='align-item center'>

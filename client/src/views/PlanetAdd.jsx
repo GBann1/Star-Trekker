@@ -4,8 +4,6 @@ import AddPlanet from "../components/AddPlanet";
 
 const PlanetAdd = () => {
 
-    
-    
     return (
         <div>
             <AddPlanet/>
