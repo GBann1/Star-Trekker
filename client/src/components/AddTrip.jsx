@@ -78,7 +78,7 @@ const AddTrip = () => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <div>
+                <div> 
                     <label >Start Date</label>
                     <input type="date" name='startDate' value={trip.startDate} onChange={handleChange} />
                 </div>
