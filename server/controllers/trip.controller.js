@@ -12,7 +12,7 @@ module.exports.allTrips = (req, res) => {
 }
 
 module.exports.oneTrip = (req, res) => {
-    Trip.findOne({_id: req.params.id})
+    Trip.findOne({userId: req.params.id})
         .then(oneTrip => res.json(oneTrip))
         .catch(err=>res.json(err))
 }
