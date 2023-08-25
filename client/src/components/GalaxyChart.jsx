@@ -25,7 +25,6 @@ const GalaxyChart = () => {
                 const yArr = []
                 const zArr = []
                 planetDataPoints.map((planet) => {
-                    console.log(planet)
                     const xVal = planet.radius * Math.cos(planet.angleA) * Math.sin(planet.angleB);
                     const yVal = planet.radius * Math.sin(planet.angleA) * Math.sin(planet.angleB);
                     const zVal = planet.radius * Math.cos(planet.angleA);

@@ -1,5 +1,5 @@
 const Users = require('../controllers/user.controller');
-const {authenticate} = require("../configs/middleware.config")
+const {authenticate} = require("../configs/middleware.config");
 
 module.exports = app => {
     app.post("/api/users", Users.registerUser);

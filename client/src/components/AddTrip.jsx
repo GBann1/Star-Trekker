@@ -1,20 +1,21 @@
-import React, { useState, useEffect } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
-import axios from "axios"
+import React, { useState, useEffect, useContext } from 'react';
+import UserContext from "../context/UserContext";
+import { useNavigate } from 'react-router-dom';
+import axios from "axios";
 
 const AddTrip = () => {
 
-    const { id } = useParams();
+    const { userID } = useContext(UserContext);
     const [planets, setPlanets] = useState([]);
     const [planetData, setPlanetData] = useState(null);
 
     const [trip, setTrip] = useState({
         startDate: "",
-        startPlanet: "",
-        destination: "",
+        startPlanet: "Earth",
+        destination: "Mercury",
         time: 0,
         cost: 0,
-        userId: id
+        userId: userID
     })
 
     const navigate = useNavigate();
@@ -48,9 +49,9 @@ const AddTrip = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post(`http://localhost:8000/api/trips/new`, { trip })
+        axios.post(`http://localhost:8000/api/trips/new`, {trip} )
             .then(response => {
-                navigate(`/see_history/${id}`)
+                navigate(`/see_history`)
             })
             .catch(err => console.log(err))
     }
@@ -69,31 +70,32 @@ const AddTrip = () => {
                 setTrip({
                     ...trip,
                     [name]: value,
-                    fuelCost: fuel,
-                    travelTime: time,
+                    cost: fuel, 
+                    time: time,
                 });
             }
-        } else {
+        }
+        else {
             setTrip({
                 ...trip,
-                [name]: value,
-            });
+                [name]: value
+            })
         }
     };
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <div>
+                <div> 
                     <label >Start Date</label>
                     <input type="date" name='startDate' value={trip.startDate} onChange={handleChange} />
                 </div>
                 <div>
                     <label>Starting Point:</label>
-                    <select className="form-select w-25" name="startPlanet" onChange={handleChange}>
+                    <select className="form-select w-25" name="startPlanet" value={trip.startPlanet} onChange={handleChange}>
                         {planets.map((eachPlanet, idx) => {
                             return (
-                                <option value={eachPlanet.name}>{eachPlanet.name}</option>
+                                <option key={idx} value={eachPlanet.name}>{eachPlanet.name}</option>
                             )
                         })}
                     </select>
@@ -103,18 +105,19 @@ const AddTrip = () => {
                     <select className="form-select w-25" name="destination" id="{planets}" onChange={handleChange}>
                         {planets.map((eachPlanet, idx) => {
                             return (
-                                <option value={eachPlanet.name}>{eachPlanet.name}</option>
+
+                                <option key={idx} value={eachPlanet.name}>{eachPlanet.name}</option>
                             )
                         })}
                     </select>
                 </div>
                 <div>
                     <label>Estimated Fuel Cost</label>
-                    <p>$ {trip.fuelCost || 'N/A'}</p>
+                    <p>$ {trip.cost || ''}</p>
                 </div>
                 <div>
                     <label>Estimated Travel Time</label>
-                    <p>{trip.travelTime || 'N/A'} days</p>
+                    <p>{trip.time || ''} days</p>
                 </div>
                 <button type='submit' className='btn btn-primary'>Submit</button>
             </form >

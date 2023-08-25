@@ -1,67 +1,80 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import axios from "axios";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const AddPlanet = () => {
+
     const [planet, setPlanet] = useState({
-        planetName: "",
-        rotationPeriod: "",
-        orbitalPeriod: 0,
-        diameter: 0,
-        climate: "",
-        gravity: "",
-        terrain: "",
-        surfaceWater: 0,
-        population: 0
+        name: "",
+        mass: 0,
+        radius: 0,
+        period: 0,
+        temperature: 0,
+        distance_light_year: 0,
+        semi_major_axis: 0,
+        imageURL: "",
+        angleA: 0,
+        angleB: 0
         //coordinates: [x,y,z,r]
     })
 
     const nav = useNavigate();
-    
+
     const submitHandler = (e) => {
         e.preventDefault();
 
-        axios.post("http://localhost:8000/api/planets", {planet})
+        axios.post("http://localhost:8000/api/planets/new", { planet })
             .then(res => {
-                setPlanet.planetName("");
-                setPlanet.rotationPeriod("");
-                setPlanet.orbitalPeriod();
-                setPlanet.diameter();
-                setPlanet.className("");
-                setPlanet.gravity("");
-                setPlanet.terrain("");
-                setPlanet.surfaceWater();
-                setPlanet.population();
+                // setPlanet.planetName("");
+                // setPlanet.rotationPeriod("");
+                // setPlanet.orbitalPeriod();
+                // setPlanet.diameter();
+                // setPlanet.className("");
+                // setPlanet.gravity("");
+                // setPlanet.terrain("");
+                // setPlanet.surfaceWater();
+                // setPlanet.population();
                 // add distance from earth, dist coords, something 
 
-                nav("/");
+                nav("/dashboard");
             })
     }
+
+    const handleUpdate = (e) => {
+        let { name, value } = e.target;
+        setPlanet({
+            ...planet,
+            [name]: value
+        });
+    }
+
 
     return (
         <div>
             <h1 className='m-auto'>New Planet Information</h1>
-            {/* <form onSubmit={submitHandler}>
-                <label>Name:</label>
-                <input type="text" value={planet.planetName} onChange={setPlanet.planetName(e.target.value)}/>
-                <label>Rotation period:</label>
-                <input type="text" value={planet.rotationPeriod} onChange={setPlanet.rotationPeriod(e.target.value)}/>
-                <label>Orbital Period:</label>
-                <input type="number" value={planet.orbitalPeriod} onChange={setPlanet.orbitalPeriod(e.target.value)}/>
-                <label>Diameter:</label>
-                <input type="number" value={planet.diameter} onChange={setPlanet.diameter(e.target.value)}/>
-                <label>Climate:</label>
-                <input type="text" value={planet.climate} onChange={setPlanet.className(e.target.value)}/>
-                <label>Gravity</label>
-                <input type="text" value={planet.gravity} onChange={setPlanet.gravity(e.target.value)}/>
-                <label>Terrain:</label>
-                <input type="text" value={planet.terrain} onChange={setPlanet.terrain(e.target.value)}/>
-                <label>Surface Water:</label>
-                <input type="number" value={planet.surfaceWater} onChange={setPlanet.surfaceWater(e.target.value)}/>
-                <label>Population</label>
-                <input type="number" value={planet.population} onChange={setPlanet.population(e.target.value)}/>
-                <input type="submit" value="Log Planet"/>
-            </form> */}
+            <form className="w-25 mx-auto" onSubmit={submitHandler}>
+                <label className="form-label mt-4">Name:</label>
+                <input className="form-control" type="text" value={planet.planetName} onChange={handleUpdate} />
+                <label className="form-label mt-4">Mass:</label>
+                <input className="form-control" type="text" name="mass" value={planet.rotationPeriod} onChange={handleUpdate} />
+                <label className="form-label mt-4">Radius:</label>
+                <input className="form-control" type="number" name="radius" value={planet.orbitalPeriod} onChange={handleUpdate} />
+                <label className="form-label mt-4">Period:</label>
+                <input className="form-control" type="number" name="period" value={planet.diameter} onChange={handleUpdate} />
+                <label className="form-label mt-4">Temperature:</label>
+                <input className="form-control" type="text" name="temperature" value={planet.climate} onChange={handleUpdate} />
+                <label className="form-label mt-4">Distance: </label>
+                <input className="form-control" type="text" name="distance_light_year" value={planet.gravity} onChange={handleUpdate} />
+                <label className="form-label mt-4">Semi-Major Axis:</label>
+                <input className="form-control" type="text" name="semi_major_axis" value={planet.terrain} onChange={handleUpdate} />
+                <label className="form-label mt-4">Image URL: </label>
+                <input className="form-control" type="number" name="imageURL" value={planet.surfaceWater} onChange={handleUpdate} />
+                <label className="form-label mt-4">Angle A</label>
+                <input className="form-control" type="number" name="angleA" value={planet.population} onChange={handleUpdate} />
+                <label className="form-label mt-4">Angle A</label>
+                <input className="form-control" type="number" name="angleB" value={planet.population} onChange={handleUpdate} />
+                <input className="btn btn-primary mt-4" type="submit" value="Log Planet" />
+            </form>
         </div>
     )
 }

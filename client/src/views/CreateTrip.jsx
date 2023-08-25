@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import Navbar from '../components/Navbar'
-import AddTrip from '../components/AddTrip'
+import React from 'react';
+import Navbar from '../components/Navbar';
+import AddTrip from '../components/AddTrip';
 
 const CreateTrip = () => {
 
