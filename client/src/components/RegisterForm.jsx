@@ -54,7 +54,7 @@ const RegisterForm = (props) => {
                     <input className="col-6" type="email" name="email" value={user.email} onChange={handleUpdate}></input>
                 </div>
                 <div className="row mb-3 me-1">
-                    <label htmlFor="password" className="col-6">password</label>
+                    <label htmlFor="password" className="col-6">Password</label>
                     <input className="col-6 " type="password" name="password" value={user.password} onChange={handleUpdate}></input>
                 </div>
                 <div className="row mb-3 me-1">
