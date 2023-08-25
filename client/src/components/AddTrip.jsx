@@ -49,7 +49,7 @@ const AddTrip = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post(`http://localhost:8000/api/trips/new`, {trip} )
+        axios.post(`http://localhost:8000/api/trips/new`, { trip })
             .then(response => {
                 navigate(`/see_history`)
             })
@@ -70,7 +70,7 @@ const AddTrip = () => {
                 setTrip({
                     ...trip,
                     [name]: value,
-                    cost: fuel, 
+                    cost: fuel,
                     time: time,
                 });
             }
@@ -84,15 +84,16 @@ const AddTrip = () => {
     };
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <div> 
+        <div className='w-25 mx-auto fs-3'>
+
+            <form onSubmit={handleSubmit} >
+                <div >
                     <label >Start Date</label>
-                    <input type="date" name='startDate' value={trip.startDate} onChange={handleChange} />
+                    <input type="date" name='startDate' className='form-control' value={trip.startDate} onChange={handleChange} required='true' />
                 </div>
                 <div>
                     <label>Starting Point:</label>
-                    <select className="form-select w-25" name="startPlanet" value={trip.startPlanet} onChange={handleChange}>
+                    <select className="form-select" name="startPlanet" value={trip.startPlanet} onChange={handleChange}>
                         {planets.map((eachPlanet, idx) => {
                             return (
                                 <option key={idx} value={eachPlanet.name}>{eachPlanet.name}</option>
@@ -102,7 +103,7 @@ const AddTrip = () => {
                 </div>
                 <div>
                     <label >Destination</label>
-                    <select className="form-select w-25" name="destination" id="{planets}" onChange={handleChange}>
+                    <select className="form-select" name="destination" id="{planets}" onChange={handleChange}>
                         {planets.map((eachPlanet, idx) => {
                             return (
 
@@ -111,6 +112,7 @@ const AddTrip = () => {
                         })}
                     </select>
                 </div>
+                <hr></hr>
                 <div>
                     <label>Estimated Fuel Cost</label>
                     <p>$ {trip.cost || ''}</p>

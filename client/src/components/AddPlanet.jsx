@@ -25,17 +25,6 @@ const AddPlanet = () => {
 
         axios.post("http://localhost:8000/api/planets/new", { planet })
             .then(res => {
-                // setPlanet.planetName("");
-                // setPlanet.rotationPeriod("");
-                // setPlanet.orbitalPeriod();
-                // setPlanet.diameter();
-                // setPlanet.className("");
-                // setPlanet.gravity("");
-                // setPlanet.terrain("");
-                // setPlanet.surfaceWater();
-                // setPlanet.population();
-                // add distance from earth, dist coords, something 
-
                 nav("/dashboard");
             })
     }
@@ -50,30 +39,36 @@ const AddPlanet = () => {
 
 
     return (
-        <div>
-            <h1 className='m-auto'>New Planet Information</h1>
-            <form className="w-25 mx-auto" onSubmit={submitHandler}>
-                <label className="form-label mt-4">Name:</label>
-                <input className="form-control" type="text" name="name" value={planet.planetName} onChange={handleUpdate} />
-                <label className="form-label mt-4">Mass:</label>
-                <input className="form-control" type="number" name="mass" step='0.00001' value={planet.rotationPeriod} onChange={handleUpdate} />
-                <label className="form-label mt-4">Radius:</label>
-                <input className="form-control" type="number" name="radius" step='0.00001' value={planet.orbitalPeriod} onChange={handleUpdate} />
-                <label className="form-label mt-4">Period:</label>
-                <input className="form-control" type="number" name="period" step='0.00001' value={planet.diameter} onChange={handleUpdate} />
-                <label className="form-label mt-4">Temperature:</label>
-                <input className="form-control" type="number" name="temperature" step='0.00001' value={planet.climate} onChange={handleUpdate} />
-                <label className="form-label mt-4">Distance: </label>
-                <input className="form-control" type="number" name="distance_light_year" step='0.00001' value={planet.gravity} onChange={handleUpdate} />
-                <label className="form-label mt-4">Semi-Major Axis:</label>
-                <input className="form-control" type="number" name="semi_major_axis" step='0.00001' value={planet.terrain} onChange={handleUpdate} />
-                <label className="form-label mt-4">Image URL: </label>
-                <input className="form-control" type="text" name="imageURL" value={planet.surfaceWater} onChange={handleUpdate} />
-                <label className="form-label mt-4">Angle A</label>
-                <input className="form-control" type="number" name="angleA" step='0.00001' value={planet.population} onChange={handleUpdate} />
-                <label className="form-label mt-4">Angle A</label>
-                <input className="form-control" type="number" name="angleB" step='0.00001' value={planet.population} onChange={handleUpdate} />
-                <input className="btn btn-primary mt-4" type="submit" value="Log Planet" />
+        <div >
+            <div className='text-center'>
+                <p className='fs-4'>All measurements are in relation to Earth; (e.g., a value of 1.5 = 1.5x larger than Earth)</p>
+            </div>
+            <form className="p-3 d-flex" style={{justifyContent:'center'}} onSubmit={submitHandler}>
+                <div style={{width:'20%', marginRight:'1%'}}>
+                    <label className="form-label mt-4">Name:</label>
+                    <input className="form-control" type="text" name="name" placeholder='Planet' value={planet.planetName} onChange={handleUpdate} />
+                    <label className="form-label mt-4">Mass:</label>
+                    <input className="form-control" type="number" name="mass" step='0.00001' placeholder='(0.4-100)' value={planet.rotationPeriod} onChange={handleUpdate} />
+                    <label className="form-label mt-4">Radius:</label>
+                    <input className="form-control" type="number" name="radius" step='0.00001' placeholder='(0.0002-100)' value={planet.orbitalPeriod} onChange={handleUpdate} />
+                    <label className="form-label mt-4">Period:</label>
+                    <input className="form-control" type="number" name="period" step='0.00001' placeholder='(0-100)' value={planet.diameter} onChange={handleUpdate} />
+                    <label className="form-label mt-4">Temperature (°F):</label>
+                    <input className="form-control" type="number" name="temperature" step='0.00001' placeholder='(35)' value={planet.climate} onChange={handleUpdate} />
+                </div>
+                <div style={{width:'20%', marginLeft:'1%'}}>
+                    <label className="form-label mt-4">Distance (lightyears): </label>
+                    <input className="form-control" type="number" name="distance_light_year" step='0.00001' placeholder='(0-5)' value={planet.gravity} onChange={handleUpdate} />
+                    <label className="form-label mt-4">Semi-Major Axis:</label>
+                    <input className="form-control" type="number" name="semi_major_axis" step='0.00001' placeholder='(0.8-1.2)' value={planet.terrain} onChange={handleUpdate} />
+                    <label className="form-label mt-4">Image URL: </label>
+                    <input className="form-control" type="text" name="imageURL" placeholder='https://planet_Image_Url' value={planet.surfaceWater} onChange={handleUpdate} />
+                    <label className="form-label mt-4">Angle A (deg)</label>
+                    <input className="form-control" type="number" name="angleA" step='0.00001' placeholder='(0-360)' value={planet.population} onChange={handleUpdate} />
+                    <label className="form-label mt-4">Angle B (deg)</label>
+                    <input className="form-control" type="number" name="angleB" step='0.00001' placeholder='(0-360)' value={planet.population} onChange={handleUpdate} />
+                    <input className="btn btn-primary mt-4" type="submit" value="Log Planet" />
+                </div>
             </form>
         </div>
     )

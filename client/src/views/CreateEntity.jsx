@@ -7,7 +7,10 @@ const CreateEntity = () => {
     return (
         <div>
             <Navbar />
-            <AddPlanet/>
+            <div >
+                <h1 className='m-3 text-center'>Add Space Entity</h1>
+                <AddPlanet />
+            </div>
         </div>
     )
 

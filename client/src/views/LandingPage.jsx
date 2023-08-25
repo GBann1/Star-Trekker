@@ -21,9 +21,12 @@ const LandingPage = () => {
                     </div>
                 </div>
             </nav>
-            <h2>Welcome to Star Trekkers home site!</h2>
-            <p>Here you can explore all of the features of our website and play around with some of the content.</p>
-            <p>We hope you enjoy!</p>
+            <div className='text-center'>
+                <h2 className='shadow' style={{ fontSize: '62pt' }}>Welcome to Star Trekkers home site!</h2>
+                <p style={{fontSize:'20pt'}}>Have some fun and explore our map of the solor system.</p>
+                <p style={{fontSize:'20pt'}}>We hope you enjoy!</p>
+
+            </div>
             <GalaxyChart />
         </div>
     )

@@ -6861,7 +6861,7 @@ fieldset:disabled .btn {
     margin-right: -100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    transition: transform .6s ease-in-out
+    transition: transform 2.6s ease-in-out
 }
 
 @media (prefers-reduced-motion:reduce) {

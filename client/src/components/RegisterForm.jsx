@@ -38,9 +38,9 @@ const RegisterForm = (props) => {
     }
 
     return (
-        <div className=' mt-5 me-auto  w-25'>
+        <div className=' mt-5 me-auto'>
             <h2 className='mb-5'>REGISTER</h2>
-            <form className="" onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <div className="row mb-3 me-1">
                     <label htmlFor="firstName" className="col-6">First Name</label>
                     <input className="col-6 " type="text" name="firstName" value={user.firstName} onChange={handleUpdate}></input>

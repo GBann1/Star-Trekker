@@ -17,11 +17,11 @@ const PlanetCarousel = () => {
 
     return (
         <div className="d-flex justify-content-center">
-            <Carousel interval={null} activeIndex={index} onSelect={handleSelect} className="text-center">
+            <Carousel interval={3000} activeIndex={index} onSelect={handleSelect} className="text-center">
                 {planetList.map((eachPlanet, idx) => {
                     return (
-                        <Carousel.Item key={idx}>
-                            <img src={eachPlanet.imageURL} style={{ maxWidth: 300, maxHeight: 200 }} text="First slide" alt="Planet" />
+                        <Carousel.Item key={idx} style={{width:'100vw',height:'70vh'}}>
+                            <img src={eachPlanet.imageURL} style={{height:'100%'}} className='rounded-2' text="First slide" alt="Planet" />
                             <Carousel.Caption>
                                 <h2>{eachPlanet.name}</h2>
                                 <p></p>

@@ -38,7 +38,7 @@ const LoginForm = () => {
     }
 
     return (
-        <div className=' mx-auto mt-5  w-25'>
+        <div className='mx-auto mt-5'>
             <h2 className='mb-5'>LOGIN</h2>
             <form onSubmit={handleSubmit}>
                 <div className="row mb-3 me-1">

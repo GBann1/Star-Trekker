@@ -43,3 +43,7 @@
 .centerText {
   text-align: center;
 }
+
+.slowCarousel {
+  transition: transform 1.5s ease-in;
+}
