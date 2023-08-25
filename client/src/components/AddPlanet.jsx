@@ -54,21 +54,21 @@ const AddPlanet = () => {
             <h1 className='m-auto'>New Planet Information</h1>
             <form className="w-25 mx-auto" onSubmit={submitHandler}>
                 <label className="form-label mt-4">Name:</label>
-                <input className="form-control" type="text" value={planet.planetName} onChange={handleUpdate} />
+                <input className="form-control" type="text" name="name" value={planet.planetName} onChange={handleUpdate} />
                 <label className="form-label mt-4">Mass:</label>
-                <input className="form-control" type="text" name="mass" value={planet.rotationPeriod} onChange={handleUpdate} />
+                <input className="form-control" type="number" name="mass" value={planet.rotationPeriod} onChange={handleUpdate} />
                 <label className="form-label mt-4">Radius:</label>
                 <input className="form-control" type="number" name="radius" value={planet.orbitalPeriod} onChange={handleUpdate} />
                 <label className="form-label mt-4">Period:</label>
                 <input className="form-control" type="number" name="period" value={planet.diameter} onChange={handleUpdate} />
                 <label className="form-label mt-4">Temperature:</label>
-                <input className="form-control" type="text" name="temperature" value={planet.climate} onChange={handleUpdate} />
+                <input className="form-control" type="number" name="temperature" value={planet.climate} onChange={handleUpdate} />
                 <label className="form-label mt-4">Distance: </label>
-                <input className="form-control" type="text" name="distance_light_year" value={planet.gravity} onChange={handleUpdate} />
+                <input className="form-control" type="number" name="distance_light_year" value={planet.gravity} onChange={handleUpdate} />
                 <label className="form-label mt-4">Semi-Major Axis:</label>
-                <input className="form-control" type="text" name="semi_major_axis" value={planet.terrain} onChange={handleUpdate} />
+                <input className="form-control" type="number" name="semi_major_axis" value={planet.terrain} onChange={handleUpdate} />
                 <label className="form-label mt-4">Image URL: </label>
-                <input className="form-control" type="number" name="imageURL" value={planet.surfaceWater} onChange={handleUpdate} />
+                <input className="form-control" type="text" name="imageURL" value={planet.surfaceWater} onChange={handleUpdate} />
                 <label className="form-label mt-4">Angle A</label>
                 <input className="form-control" type="number" name="angleA" value={planet.population} onChange={handleUpdate} />
                 <label className="form-label mt-4">Angle A</label>
