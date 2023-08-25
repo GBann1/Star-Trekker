@@ -9,15 +9,15 @@ const LandingPage = () => {
         <div className="mh-100">
             {/* Leave this NOT a Navbar component as the navbar component has clickable buttons now */}
             <nav className="navbar bg-body-tertiary">
-                <div className="container-fluid d-flex">
-                    <div className='me-5'>
+                <div className="container-fluid d-flex align-items-center">
+                    <div className='navbarIcons'>
                         <img style={{ height: 50, width: 50 }} className='img-fluid' src={`${image}`} alt="logo" />
                     </div>
-                    <div>
-                        <h1 className='ms-4'>Star Trekkers</h1>
+                    <div className='navbarIcons text-center'>
+                        <h1 >Star Trekkers</h1>
                     </div>
-                    <div>
-                        <button className="btn btn-light" onClick={() => navigate('/login_or_register')}>Sign Up or Login!</button>
+                    <div className='navbarIcons'>
+                        <button className="btn btn-light float-end" onClick={() => navigate('/login_or_register')}>Sign Up or Login!</button>
                     </div>
                 </div>
             </nav>
