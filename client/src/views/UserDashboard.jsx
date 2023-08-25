@@ -1,9 +1,8 @@
-import React, { useContext } from 'react'
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom';
 import GalaxyChart from '../components/GalaxyChart';
 import Navbar from '../components/Navbar';
 import PlanetCarousel from '../components/PlanetCarousel';
-import UserContext from "../context/UserContext";
 
 const UserDashboard = () => {
 

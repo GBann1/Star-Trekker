@@ -56,23 +56,23 @@ const AddPlanet = () => {
                 <label className="form-label mt-4">Name:</label>
                 <input className="form-control" type="text" name="name" value={planet.planetName} onChange={handleUpdate} />
                 <label className="form-label mt-4">Mass:</label>
-                <input className="form-control" type="number" name="mass" value={planet.rotationPeriod} onChange={handleUpdate} />
+                <input className="form-control" type="number" name="mass" step='0.00001' value={planet.rotationPeriod} onChange={handleUpdate} />
                 <label className="form-label mt-4">Radius:</label>
-                <input className="form-control" type="number" name="radius" value={planet.orbitalPeriod} onChange={handleUpdate} />
+                <input className="form-control" type="number" name="radius" step='0.00001' value={planet.orbitalPeriod} onChange={handleUpdate} />
                 <label className="form-label mt-4">Period:</label>
-                <input className="form-control" type="number" name="period" value={planet.diameter} onChange={handleUpdate} />
+                <input className="form-control" type="number" name="period" step='0.00001' value={planet.diameter} onChange={handleUpdate} />
                 <label className="form-label mt-4">Temperature:</label>
-                <input className="form-control" type="number" name="temperature" value={planet.climate} onChange={handleUpdate} />
+                <input className="form-control" type="number" name="temperature" step='0.00001' value={planet.climate} onChange={handleUpdate} />
                 <label className="form-label mt-4">Distance: </label>
-                <input className="form-control" type="number" name="distance_light_year" value={planet.gravity} onChange={handleUpdate} />
+                <input className="form-control" type="number" name="distance_light_year" step='0.00001' value={planet.gravity} onChange={handleUpdate} />
                 <label className="form-label mt-4">Semi-Major Axis:</label>
-                <input className="form-control" type="number" name="semi_major_axis" value={planet.terrain} onChange={handleUpdate} />
+                <input className="form-control" type="number" name="semi_major_axis" step='0.00001' value={planet.terrain} onChange={handleUpdate} />
                 <label className="form-label mt-4">Image URL: </label>
                 <input className="form-control" type="text" name="imageURL" value={planet.surfaceWater} onChange={handleUpdate} />
                 <label className="form-label mt-4">Angle A</label>
-                <input className="form-control" type="number" name="angleA" value={planet.population} onChange={handleUpdate} />
+                <input className="form-control" type="number" name="angleA" step='0.00001' value={planet.population} onChange={handleUpdate} />
                 <label className="form-label mt-4">Angle A</label>
-                <input className="form-control" type="number" name="angleB" value={planet.population} onChange={handleUpdate} />
+                <input className="form-control" type="number" name="angleB" step='0.00001' value={planet.population} onChange={handleUpdate} />
                 <input className="btn btn-primary mt-4" type="submit" value="Log Planet" />
             </form>
         </div>

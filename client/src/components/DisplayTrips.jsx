@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext } from 'react';
 import UserContext from "../context/UserContext";
-import axios from 'axios'
-import { useNavigate, useParams } from 'react-router-dom'
+import axios from 'axios';
 
 const DisplayTrips = () => {
     const { userID } = useContext(UserContext);
@@ -11,13 +10,11 @@ const DisplayTrips = () => {
         axios.get(`http://localhost:8000/api/trips/${userID}`)
             .then(res => {
                 const data = res.data
-                // setTrips([...trips, data])
                 setTrips(data)
             })
             .catch(err => console.log(err))
 
     }, [])
-    console.log(trips)
 
     return (
         <div>
@@ -33,7 +30,6 @@ const DisplayTrips = () => {
                 </thead>
                 <tbody>
                     {trips.map((trip, idx) => {
-                        // This needs to be a table to keep with our wireframe
                         return (
                             <tr className="table-light" key={idx}>
                                 <td>{trip.startDate}</td>
