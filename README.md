@@ -8,7 +8,7 @@ In no particular order\
 **Backend**:
 - [Iron-Session](https://github.com/vvo/iron-session)
 - [B-Crypt](https://github.com/kelektiv/node.bcrypt.js)
-- [Cookie-Parser](https://github.com/expressjs/cookie-parser)\
+- [Cookie-Parser](https://github.com/expressjs/cookie-parser)
 
 **Frontend**:
 - [Plotly](https://plotly.com/javascript/)
