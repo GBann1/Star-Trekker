@@ -23,7 +23,7 @@ const LandingPage = () => {
             </nav>
             <div className='text-center'>
                 <h2 className='shadow' style={{ fontSize: '62pt' }}>Welcome to Star Trekkers home site!</h2>
-                <p style={{fontSize:'20pt'}}>Have some fun and explore our map of the solor system.</p>
+                <p style={{fontSize:'20pt'}}>Have some fun and explore our map of the solar system.</p>
                 <p style={{fontSize:'20pt'}}>We hope you enjoy!</p>
 
             </div>
