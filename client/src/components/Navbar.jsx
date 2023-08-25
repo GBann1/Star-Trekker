@@ -30,16 +30,16 @@ const Navbar = () => {
     return (
         <div>
             <nav className="navbar navbar-expand-lg bg-light" data-bs-theme="light">
-                <div className="container-fluid d-flex">
-                    <div className='align-item center'>
-                        <button  onClick={()=> navigate(`/dashboard`)}><img style={{ height: 50, width: 50 }} className='img-fluid' src={`${image}`} alt="logo" /></button>
+                <div className="container-fluid d-flex align-items-center justify-conetnt-between">
+                    <div className='me-5'>
+                        <button onClick={() => navigate(`/dashboard`)}><img style={{ height: 50, width: 50 }} className='img-fluid' src={`${image}`} alt="logo" /></button>
                     </div>
 
                     <div>
-                        <h1 className='align-item center-center ' onClick={()=> navigate(`/dashboard`)}>Star Trekkers</h1>
+                        <h1 className='ms-4' onClick={() => navigate(`/dashboard`)}>Star Trekkers</h1>
                     </div>
 
-                    <div className='align-item center-center '>
+                    <div className='align-items-center'>
                         <ul className='navbar-nav me-auto '>
                             <li className="nav-item dropdown">
                                 {
