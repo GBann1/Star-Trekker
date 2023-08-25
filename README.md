@@ -35,12 +35,12 @@ git clone https://github.com/GBann1/Star-Trekker.git
 ```
 2. Open two terminal windows
 
-3. In one navigate into the new folder `cd Star-Trekker/server` and simply run:
+3. In one, navigate into the new folder `cd Star-Trekker/server` and simply run:
 ```
 npm install
 nodemon server.js
 ```
-4. In one the other `cd Star-Trekker/client` :
+4. In one the other, `cd Star-Trekker/client` :
 ```
 npm install
 npm start
