@@ -16,7 +16,7 @@ In no particular order\
 - [BootSwatch](https://bootswatch.com)
 - [Axios](https://github.com/axios/axios#example)
 
-This project was about spreading our wings and testing our developer mindsets by incorporating new technologies, and seeing how well we can read and understand external documentation, and getting comfortable with using GitHub as a collarboration tool.
+This project was about spreading our wings and testing our developer mindsets by incorporating new technologies, seeing how well we can read and understand external documentation, and getting comfortable with using GitHub as a collarboration tool.
 
 We hope you enjoy our 3D bubble chart, and while you're at it, why not see where you can go next?
 
