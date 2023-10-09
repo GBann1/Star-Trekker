@@ -57,3 +57,8 @@ Members:\
 
 Thank you for taking a look at our project, and we hope you enjoyed!
 
+
+![Screenshot (255)](https://github.com/GBann1/Star-Trekker/assets/135743320/22cc4eef-f053-45c7-b21d-7d9daa3c6456)
+
+![Screenshot (256)](https://github.com/GBann1/Star-Trekker/assets/135743320/275fda2d-b7fe-40b1-aad5-cb7fa87077d0)
+
